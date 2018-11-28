@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="" />
+    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="exported for explice" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,13 +39,13 @@
         <counts>
           <entry key="dummy" value="119" />
           <entry key="java" value="1871" />
-          <entry key="txt" value="14" />
+          <entry key="txt" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="1871" />
-          <entry key="PLAIN_TEXT" value="133" />
+          <entry key="PLAIN_TEXT" value="157" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -145,49 +145,6 @@
               <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Client" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Client" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Client" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Mediator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Client" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Client" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -255,12 +212,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543399969353</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="exported for explice">
+      <created>1543401176169</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1543401176169</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
@@ -296,7 +259,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="First creation" />
+    <MESSAGE value="exported for explice" />
+    <option name="LAST_COMMIT_MESSAGE" value="exported for explice" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Domain/asd.java" />
