@@ -1,28 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="First creation">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Controller/IServerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Controller/ServerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Controller/StartServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Domain/Mediator/DbCommunication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Domain/Mediator/DbCostQuerry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Domain/Mediator/DbItemQuerry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Domain/Mediator/ItemModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Domain/Mediator/ItemPersistance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Domain/Mediator/Test_DbConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Domain/Mediator/YearlyRelationModelManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Domain/Model/Cost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Domain/Model/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Domain/Model/MyDate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Domain/Model/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/Domain/Model/TupleList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/View/ClientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/View/IClientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/View/StartConsole.java" afterDir="false" />
+    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,25 +15,25 @@
     <session id="-1927939369">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
-          <entry key="project.open.time.0" value="2" />
+          <entry key="project.closed" value="12" />
+          <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="50" />
+          <entry key="java" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="50" />
+          <entry key="JAVA" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -74,11 +54,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Client/View/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="112">
-              <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+              <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Client/Domain/Model/Cost.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -219,8 +208,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -263,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536222584982</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="First creation">
+      <created>1543347633359</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1543347633359</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -276,8 +272,9 @@
       <window_info id="Learn" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.07449664" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.07516778" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" weight="0.32907802" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" />
@@ -335,13 +332,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client/Domain/Model/Cost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -449,7 +439,7 @@
     <entry file="file://$PROJECT_DIR$/src/Client/View/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
-          <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -470,6 +460,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/Domain/Model/Cost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
