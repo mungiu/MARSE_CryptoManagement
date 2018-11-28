@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Client/Domain/Model/Tuple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Domain/Model/Cost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Domain/Model/Cost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Domain/Model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Domain/Model/Item.java" afterDir="false" />
-    </list>
+    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/src/Client/Domain/Model/Tuple.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -253,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543394888939</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="First creation">
+      <created>1543399969353</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1543399969353</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -499,7 +501,7 @@
     <entry file="file://$PROJECT_DIR$/src/Client/Domain/Model/Tuple.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
