@@ -1,0 +1,208 @@
+create schema "MARSE";
+set search_path = "MARSE";
+
+create domain D_Owner char(30);
+create domain D_type text;
+create domain D_BillNo integer;
+create domain D_totalAmount numeric(1000,2);
+create domain D_shipmentNr char(15);
+create domain D_weight numeric(10,2);
+create domain D_description text;
+create domain D_Company text;
+create domain D_Price numeric(1000,2);
+create domain D_PaidForCosts numeric(1000,2);
+create domain D_qty integer;
+create domain D_BillDate  DATE NOT NULL DEFAULT CURRENT_DATE;
+create domain D_OrderDate  DATE NOT NULL DEFAULT CURRENT_DATE;
+create domain D_ShippingDate  DATE NOT NULL DEFAULT CURRENT_DATE;
+create domain D_arrivaldate DATE NOT NULL DEFAULT CURRENT_DATE;
+create domain D_status char(10);
+create domain D_ProjectNumber integer;
+create domain d_ReinbursmentStatus text;
+create domain D_Brand char(20);
+create domain D_Model text;
+create domain D_TotalOrderValue numeric(1000,2);
+create domain D_seller text;
+create domain D_Refund text;
+create domain D_electricityPrice numeric(10,2);
+
+--Electricity, one of the domains is empty?
+create domain D_FILLME text;
+
+create table SSD(
+	owner D_owner, 
+	Brand D_brand,
+	Model D_model,
+	Price D_price, 
+	Quantity D_qty,
+	TotalOrderValue D_totalordervalue,
+	OrderDate D_orderdate,
+	ArrivalDate D_arrivalDate,
+	Status D_status, 
+	Seller D_seller,
+	Refund D_refund,
+primary key (Owner)
+);
+create table RAM(
+	owner D_owner, 
+	Brand D_brand,
+	Model D_model,
+	Price D_price, 
+	Quantity D_qty,
+	TotalOrderValue D_totalordervalue,
+	OrderDate D_orderdate,
+	ArrivalDate D_arrivalDate,
+	Status D_status, 
+	Seller D_seller,
+	Refund D_refund,
+primary key (Owner)
+);
+create table CPU(
+	owner D_owner, 
+	Brand D_brand,
+	Model D_model,
+	Price D_price, 
+	Quantity D_qty,
+	TotalOrderValue D_totalordervalue,
+	OrderDate D_orderdate,
+	ArrivalDate D_arrivalDate,
+	Status D_status, 
+	Seller D_seller,
+	Refund D_refund,
+primary key (Owner)
+);
+create table MB(
+	owner D_owner, 
+	Brand D_brand,
+	Model D_model,
+	Price D_price, 
+	Quantity D_qty,
+	TotalOrderValue D_totalordervalue,
+	OrderDate D_orderdate,
+	ArrivalDate D_arrivalDate,
+	Status D_status, 
+	Seller D_seller,
+	Refund D_refund,
+primary key (Owner)
+);
+
+create table PSU(
+	owner D_owner, 
+	Brand D_brand,
+	Model D_model,
+	Price D_price, 
+	Quantity D_qty,
+	TotalOrderValue D_totalordervalue,
+	OrderDate D_orderdate,
+	ArrivalDate D_arrivalDate,
+	Status D_status, 
+	Seller D_seller,
+	Refund D_refund,
+primary key (Owner)
+);
+create table GPU(
+	owner D_owner, 
+	Brand D_brand,
+	Model D_model,
+	Price D_price, 
+	Quantity D_qty,
+	TotalOrderValue D_totalordervalue,
+	OrderDate D_orderdate,
+	ArrivalDate D_arrivalDate,
+	Status D_status, 
+	Seller D_seller,
+	Refund D_refund,
+primary key (Owner)
+);
+
+create table Project(
+	Owner D_owner,
+	Type D_type,
+	Description D_description,
+	Company D_company,
+	Price D_price,
+	PaidForCosts D_PaidForCosts,
+	Quantity D_qty,
+	OrderDate D_OrderDate ,
+	ShippingDate D_ShippingDate,
+	Status D_status, 
+	ProjectNo D_projectNumber,
+	ReinburstmentStatus d_ReinbursmentStatus,
+primary key (Owner)
+);
+
+
+create table Logistic(
+	Owner d_owner,
+	ShipmentNo D_shipmentnr not null,
+	Company D_company,
+	Weight D_weight,
+	Price D_price,
+	PaidForCosts D_paidforcosts not null,
+	ShippingDate D_shippingdate,
+	Status D_status not null,
+primary key (Owner)
+);
+
+create table ElectricityHiveOs(
+	Owner d_owner,
+	BillNo D_billNo,
+	BillDate D_billDate,
+	TotalAmount d_totalamount,
+	PaidForCosts d_paidforcosts,
+	ElectricityPrice d_electricityprice,
+	FILLME D_FILLME,	
+	ReinbursmentStatus d_ReinbursmentStatus,
+primary key (Owner)
+);
+
+
+
+create table MISC(
+owner D_owner,
+Brand D_brand,
+Model D_model,
+price D_price,
+Quantity D_qty,
+OrderValue D_totalordervalue,
+OrderDate D_orderdate,
+ArrivalDate D_arrivaldate,
+Status D_status not null,
+Seller D_seller,
+Refund D_refund,
+primary key(owner)
+);
+
+insert into MISC (owner, Brand, Model, price, Quantity, OrderValue, OrderDate, ArrivalDate, status, seller, refund) 
+values ('Andrei Mungui', 'Rankie','DisplayPort to VGA ',
+	   1000 , 2 , 158.37 , '2018-10-08', '2018-10-03',
+		'Arrived', 'Amazon.de', 'none' );
+
+select * from MISC;
+select * from electricityHiveOS;
+select * from Project;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
