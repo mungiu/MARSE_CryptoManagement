@@ -1,6 +1,6 @@
-package Client.Domain.Model;
+package Client.Model;
 
-public class Item
+public class Item extends Tuple
 {
 	private String type;
 	private String brand;
@@ -8,6 +8,11 @@ public class Item
 	private boolean arrivalStatus;
 	private String seller;
 	private String notes;
+
+	public Item(String type, String brand, String model, int price, boolean arrivalStatus, String seller, String note)
+	{
+		super(type, brand, model, price, arrivalStatus, seller, note);
+	}
 
 	public String getType()
 	{

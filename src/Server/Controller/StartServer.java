@@ -1,6 +1,6 @@
-package Client.Controller;
+package Server.Controller;
 
-import Server.Domain.Model.CostTupleList;
+import Server.Domain.Mediator.CostModelManager;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -12,9 +12,9 @@ public class StartServer
 {
 	public static void main(String[] args) throws RemoteException, NotBoundException, MalformedURLException
 	{
-		ClientController clientController = new ClientController(CostTupleList.getInstance());
+		ServerController serverController = new ServerController(CostModelManager.getInstance());
 		LocateRegistry.createRegistry(1099);
-		Naming.rebind("clientController", clientController);
+		Naming.rebind("serverController", serverController);
 		System.out.println("Server started...");
 	}
 }

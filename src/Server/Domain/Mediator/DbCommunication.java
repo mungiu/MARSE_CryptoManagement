@@ -1,4 +1,4 @@
-package Client.Domain.Mediator;
+package Server.Domain.Mediator;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

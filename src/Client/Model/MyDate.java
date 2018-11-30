@@ -1,4 +1,4 @@
-package Client.Domain.Model;
+package Client.Model;
 
 import java.util.GregorianCalendar;
 

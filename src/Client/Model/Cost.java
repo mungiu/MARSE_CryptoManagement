@@ -1,8 +1,13 @@
-package Client.Domain.Model;
+package Client.Model;
 
-public class Cost
+public class Cost extends Tuple
 {
 	private double amount;
+
+	public Cost(double amount)
+	{
+		super(amount);
+	}
 
 	public double getAmount()
 	{
