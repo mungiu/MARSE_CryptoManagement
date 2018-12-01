@@ -24,7 +24,7 @@ public class ItemModelManager implements IModelManager<Item>
 	private static ItemModelManager instance;
 	private static Lock lock = new ReentrantLock();
 
-	private ICostPersistance costPersistance;
+	private IItemPersistance itemPersistance;
 	private Connection connection = null;
 	private ItemQuerry itemQuerry = new ItemQuerry(connection);
 

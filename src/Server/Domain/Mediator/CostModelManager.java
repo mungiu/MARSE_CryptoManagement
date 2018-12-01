@@ -22,7 +22,7 @@ public class CostModelManager implements IModelManager<Cost>
 	private static CostModelManager instance;
 	private static Lock lock = new ReentrantLock();
 
-	private IItemPersistance itemPersistance;
+	private ICostPersistance costPersistance;
 	private Connection connection = null;
 	private CostQuerry costQuerry = new CostQuerry(connection);
 

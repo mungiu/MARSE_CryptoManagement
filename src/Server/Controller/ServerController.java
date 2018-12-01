@@ -10,6 +10,7 @@ import SharedInterfaces.Observer;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ServerController implements IServerController
@@ -28,13 +29,13 @@ public class ServerController implements IServerController
 	}
 
 	@Override
-	public ArrayList<Item> executeItemRelationRequest(String type)
+	public ArrayList<Item> executeItemRelationRequest(String type) throws SQLException
 	{
 		return itemModelManager.assembleRelation();
 	}
 
 	@Override
-	public ArrayList<Cost> executeCostRelationRequest(String type)
+	public ArrayList<Cost> executeCostRelationRequest(String type) throws SQLException
 	{
 		return costModelManager.assembleRelation();
 	}
@@ -42,18 +43,20 @@ public class ServerController implements IServerController
 	@Override
 	public void addObserver(Observer<String> obs) throws RemoteException
 	{
-
+		observers.add(obs);
 	}
 
 	@Override
 	public void deleteObserver(Observer<String> obs) throws RemoteException
 	{
-
+		observers.remove(obs);
 	}
 
 	@Override
 	public void notifyObservers(String arg) throws IOException
 	{
-
+		// TODO check what you need instead of "something"
+		for (Observer<String> obs : observers)
+			obs.notify(this, "something");
 	}
 }

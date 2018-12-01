@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CostQuerry extends Test_DbConnection<Cost>
+public class CostQuerry extends Test_DbConnection<Cost> implements ICostPersistance
 {
 	public CostQuerry(Connection iconn)
 	{
@@ -30,5 +30,11 @@ public class CostQuerry extends Test_DbConnection<Cost>
 
 		System.out.println("Cost Query execution finalized.");
 		return rsCostTable;
+	}
+
+	@Override
+	public ResultSet pullCostResultSet() throws SQLException
+	{
+		return runCase();
 	}
 }
