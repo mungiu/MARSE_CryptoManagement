@@ -1,6 +1,6 @@
 package Server.Domain.Mediator;
 
-import Server.Domain.Model.Cost;
+import SharedModel.Cost;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

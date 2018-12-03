@@ -1,8 +1,8 @@
 package Server.Domain.Mediator;
 
-import Server.Domain.Model.Cost;
-import Server.Domain.Model.CostTupleList;
-import Server.Domain.Model.Person;
+import SharedModel.Cost;
+import SharedModel.CostTupleList;
+import SharedModel.Person;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

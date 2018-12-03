@@ -1,5 +1,6 @@
-package Client.Model;
+package SharedModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -7,14 +8,14 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Singleton
  */
-public class CostTupleList
+public class CostTupleList implements Serializable
 {
 	private static CostTupleList instance;
 	private static Lock lock = new ReentrantLock();
 
 	private static ArrayList<Cost> tupleList;
 
-	private CostTupleList()
+	public CostTupleList()
 	{
 		tupleList = new ArrayList<>();
 	}
@@ -29,5 +30,10 @@ public class CostTupleList
 			}
 
 		return instance;
+	}
+
+	public ArrayList<Cost> getTupleList()
+	{
+		return tupleList;
 	}
 }

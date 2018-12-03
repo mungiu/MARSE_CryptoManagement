@@ -1,4 +1,4 @@
-package Client.Model;
+package SharedModel;
 
 public class Tuple
 {

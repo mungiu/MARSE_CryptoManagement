@@ -1,8 +1,8 @@
 package Server.Domain.Mediator;
 
-import Server.Domain.Model.Item;
-import Server.Domain.Model.ItemTupleList;
-import Server.Domain.Model.Person;
+import SharedModel.Item;
+import SharedModel.ItemTupleList;
+import SharedModel.Person;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

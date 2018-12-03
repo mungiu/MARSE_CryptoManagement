@@ -1,10 +1,10 @@
 package Client.Controller;
 
-import Client.Model.Tuple;
-import Server.Domain.Model.CostTupleList;
 import SharedInterfaces.IClientController;
 import SharedInterfaces.IServerController;
 import SharedInterfaces.Observable;
+import SharedModel.Cost;
+import SharedModel.Item;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -12,13 +12,14 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ClientController implements IClientController
 {
 	private IServerController iServerController;
 
-	public ClientController(CostTupleList costTupleList) throws RemoteException, MalformedURLException, NotBoundException
+	public ClientController() throws RemoteException, MalformedURLException, NotBoundException
 	{
 		UnicastRemoteObject.exportObject(this, 0);
 		// "rmi://<ip>:<port>/<serverName>
@@ -26,10 +27,32 @@ public class ClientController implements IClientController
 	}
 
 
-
-	public ArrayList<Tuple> requestRelation(String type)
+	public ArrayList<Cost> requestCostRelation()
 	{
-		return iServerController.executeRelationRequest(type);
+		try
+		{
+			return iServerController.executeCostRelationRequest();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	public ArrayList<Item> requestItemRelation()
+	{
+		try
+		{
+			return iServerController.executeItemRelationRequest();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 
 	public void addThisAsObserver() throws RemoteException

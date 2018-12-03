@@ -1,5 +1,6 @@
-package Client.Model;
+package SharedModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -7,16 +8,16 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Singleton
  */
-public class ItemTupleList
+public class ItemTupleList implements Serializable
 {
 	private static ItemTupleList instance;
 	private static Lock lock = new ReentrantLock();
 
-	private static ArrayList<Cost> tupleList;
+	private static ArrayList<Item> itemList = new ArrayList<>();
 
 	private ItemTupleList()
 	{
-		tupleList = new ArrayList<>();
+
 	}
 
 	public static ItemTupleList getInstance()
@@ -27,7 +28,11 @@ public class ItemTupleList
 				if (instance == null)
 					instance = new ItemTupleList();
 			}
-
 		return instance;
+	}
+
+	public ArrayList<Item> getTupleList()
+	{
+		return itemList;
 	}
 }

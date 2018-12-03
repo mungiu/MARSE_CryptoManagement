@@ -1,4 +1,4 @@
-package Client.Model;
+package SharedModel;
 
 import java.util.GregorianCalendar;
 

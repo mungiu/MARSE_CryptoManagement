@@ -1,8 +1,9 @@
-package Server.Domain.Model;
+package SharedModel;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Cost
+public class Cost implements Serializable
 {
 	private double amount;
 	private Date incuredDate;

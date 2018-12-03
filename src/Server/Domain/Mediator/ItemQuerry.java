@@ -1,6 +1,6 @@
 package Server.Domain.Mediator;
 
-import Server.Domain.Model.Item;
+import SharedModel.Item;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,8 +1,9 @@
-package Server.Domain.Model;
+package SharedModel;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Item
+public class Item implements Serializable
 {
 	private String model;
 	private String type;

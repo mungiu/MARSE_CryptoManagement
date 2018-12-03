@@ -2,8 +2,8 @@ package Server.Controller;
 
 import Server.Domain.Mediator.CostModelManager;
 import Server.Domain.Mediator.ItemModelManager;
-import Server.Domain.Model.Cost;
-import Server.Domain.Model.Item;
+import SharedModel.Cost;
+import SharedModel.Item;
 import SharedInterfaces.IServerController;
 import SharedInterfaces.Observer;
 
@@ -29,13 +29,13 @@ public class ServerController implements IServerController
 	}
 
 	@Override
-	public ArrayList<Item> executeItemRelationRequest(String type) throws SQLException
+	public ArrayList<Item> executeItemRelationRequest() throws SQLException
 	{
 		return itemModelManager.assembleRelation();
 	}
 
 	@Override
-	public ArrayList<Cost> executeCostRelationRequest(String type) throws SQLException
+	public ArrayList<Cost> executeCostRelationRequest() throws SQLException
 	{
 		return costModelManager.assembleRelation();
 	}
