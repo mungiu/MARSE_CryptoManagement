@@ -25,11 +25,11 @@ public class ItemQuerry extends Test_DbConnection<Item> implements IItemPersista
 
 		// Closing the doors
 		rsItemTable.close();
-		rsItemTable = null;
 		stmtPullItemRelation.close();
 
 		System.out.println("Cost Query execution finalized.");
 		return rsItemTable;
+		//TODO remember to nullify rsItemTable after its sent to the client
 	}
 
 	@Override

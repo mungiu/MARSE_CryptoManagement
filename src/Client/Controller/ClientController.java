@@ -53,6 +53,9 @@ public class ClientController implements IClientController
 		}
 
 		return null;
+
+
+
 	}
 
 	public void addThisAsObserver() throws RemoteException

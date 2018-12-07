@@ -19,7 +19,7 @@ public class DbCommunication
 		{
 			// TODO change so it works with postgre SQL
 //			DriverManager.registerDriver(/*new oracle.jdbc.OracleDriver()*/);
-//			Class.forName("org.postgresql.Driver");
+//			FileSearch.forName("org.postgresql.Driver");
 			conn = DriverManager.getConnection(connectString, userName, password);
 
 			conn.setAutoCommit(false);

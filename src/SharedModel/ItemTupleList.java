@@ -13,11 +13,11 @@ public class ItemTupleList implements Serializable
 	private static ItemTupleList instance;
 	private static Lock lock = new ReentrantLock();
 
-	private static ArrayList<Item> itemList = new ArrayList<>();
+	private static ArrayList<Item> itemList;
 
 	private ItemTupleList()
 	{
-
+		itemList = new ArrayList<>();
 	}
 
 	public static ItemTupleList getInstance()

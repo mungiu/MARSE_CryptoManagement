@@ -13,11 +13,6 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Singleton
- * <p>
- * The Model Manager keeps the Model’s state –
- * in this case only a Tuple instance variable. The second instance variable is a CdPersistence.
- * <p>
- * TODO: Implements State Pattern?
  */
 public class ItemModelManager implements IModelManager<Item>
 {

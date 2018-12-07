@@ -7,6 +7,7 @@ import java.sql.Statement;
 
 public class Select_From
 {
+	//TODO understand how this class should be correctly used
 	public static void main(String args[])
 	{
 		Connection c = null;

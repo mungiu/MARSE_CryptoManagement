@@ -25,11 +25,11 @@ public class CostQuerry extends Test_DbConnection<Cost> implements ICostPersista
 
 		// Closing the doors
 		rsCostTable.close();
-		rsCostTable = null;
 		stmtPullCostRelation.close();
 
 		System.out.println("Cost Query execution finalized.");
 		return rsCostTable;
+		//TODO remember to nullify rsItemTable after its sent to the client
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import java.sql.Statement;
 
 public class Create_Table
 {
+	//TODO understand how this class should be correctly used
 	public static void main(String args[])
 	{
 		Connection c = null;
