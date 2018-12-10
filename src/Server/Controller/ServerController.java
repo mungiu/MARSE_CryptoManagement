@@ -2,12 +2,14 @@ package Server.Controller;
 
 import Server.Domain.Mediator.CostModelManager;
 import Server.Domain.Mediator.ItemModelManager;
-import SharedModel.Cost;
-import SharedModel.Item;
 import SharedInterfaces.IServerController;
 import SharedInterfaces.Observer;
+import SharedModel.Cost;
+import SharedModel.Item;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.SQLException;
@@ -18,12 +20,13 @@ public class ServerController implements IServerController
 	private CostModelManager costModelManager;
 	private ItemModelManager itemModelManager;
 
-	public ServerController() throws RemoteException
+	public ServerController() throws RemoteException, MalformedURLException
 	{
 		costModelManager = CostModelManager.getInstance();
 		itemModelManager = ItemModelManager.getInstance();
 
 		UnicastRemoteObject.exportObject(this, 0);
+
 		// "rmi://<ip>:<port>/<serverName>
 //		iClientController = (IClientController) Naming.lookup("rmi://localhost:1099/iClientController");
 	}

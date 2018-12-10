@@ -1,11 +1,11 @@
 package SharedInterfaces;
 
-import java.io.IOException;
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 public interface Observer<T> extends Remote
 {
-	void notify(Observable obs, T arg) throws IOException;
+	void notify(Observable obs, T arg) throws RemoteException;
 }
 
 
