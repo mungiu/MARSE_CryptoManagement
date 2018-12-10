@@ -35,12 +35,13 @@ public class CostQuerry extends Test_DbConnection<Cost> implements IPersistance
 	@Override
 	public ResultSet pullResultSet() throws SQLException
 	{
+		// TODO Run case is called twice
 		return runCase();
 	}
 
 	@Override
 	public void pushTupleInsertStatement() throws SecurityException
 	{
-
+		// TODO Check if this has to be in a separate class AKA one class per SQL statement
 	}
 }
