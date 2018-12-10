@@ -1,0 +1,192 @@
+create schema "MARSE_Project";
+set search_path = "MARSE_Project";
+
+//////////////////////////////////////////////////////////
+////////////////////////////////////// PROFITABILITY TABLE
+//////////////////////////////////////////////////////////
+create domain D_DataType varchar(50);
+
+create domain D_Jan_DKK decimal(16,2);
+create domain D_Feb_DKK decimal(16,2);
+create domain D_Mar_DKK decimal(16,2);
+create domain D_Apr_DKK decimal(16,2);
+create domain D_May_DKK decimal(16,2);
+create domain D_Jun_DKK decimal(16,2);
+create domain D_Jul_DKK decimal(16,2);
+create domain D_Aug_DKK decimal(16,2);
+create domain D_Sep_DKK decimal(16,2);
+create domain D_Oct_DKK decimal(16,2);
+create domain D_Nov_DKK decimal(16,2);
+create domain D_Dec_DKK decimal(16,2);
+
+create domain D_Jan_BTC decimal(10,8);
+create domain D_Feb_BTC decimal(10,8);
+create domain D_Mar_BTC decimal(10,8);
+create domain D_Apr_BTC decimal(10,8);
+create domain D_May_BTC decimal(10,8);
+create domain D_Jun_BTC decimal(10,8);
+create domain D_Jul_BTC decimal(10,8);
+create domain D_Aug_BTC decimal(10,8);
+create domain D_Sep_BTC decimal(10,8);
+create domain D_Oct_BTC decimal(10,8);
+create domain D_Nov_BTC decimal(10,8);
+create domain D_Dec_BTC decimal(10,8);
+
+create table Profitability(
+	dataType	d_dataType,
+	Jan_DKK		D_Jan_DKK,
+	Feb_DKK		D_Feb_DKK,
+	Mar_DKK		D_Mar_DKK,
+	Apr_DKK		D_Apr_DKK,
+	May_DKK		D_May_DKK,
+	Jun_DKK		D_Jun_DKK,
+	Jul_DKK		D_Jul_DKK,
+	Aug_DKK		D_Aug_DKK,
+	Sep_DKK		D_Sep_DKK,
+	Oct_DKK		D_Oct_DKK,
+	Nov_DKK		D_Nov_DKK,
+	Dec_DKK		D_Dec_DKK,
+	
+	Jan_BTC		D_Jan_BTC,
+	Feb_BTC		D_Feb_BTC,
+	Mar_BTC		D_Mar_BTC,
+	Apr_BTC		D_Apr_BTC,
+	May_BTC		D_May_BTC,
+	Jun_BTC		D_Jun_BTC,
+	Jul_BTC		D_Jul_BTC,
+	Aug_BTC		D_Aug_BTC,
+	Sep_BTC		D_Sep_BTC,
+	Oct_BTC		D_Oct_BTC,
+	Nov_BTC		D_Nov_BTC,
+	Dec_BTC		D_Dec_BTC)
+
+
+//////////////////////////////////////////////////////////
+////////////////////////////////////// C | Person
+//////////////////////////////////////////////////////////
+
+create domain D_PersonName varchar(30);
+
+create domain D_Jan_Percent decimal(11,8);
+create domain D_Feb_Percent decimal(11,8);
+create domain D_Mar_Percent decimal(11,8);
+create domain D_Apr_Percent decimal(11,8);
+create domain D_May_Percent decimal(11,8);
+create domain D_Jun_Percent decimal(11,8);
+create domain D_Jul_Percent decimal(11,8);
+create domain D_Aug_Percent decimal(11,8);
+create domain D_Sep_Percent decimal(11,8);
+create domain D_Oct_Percent decimal(11,8);
+create domain D_Nov_Percent decimal(11,8);
+create domain D_Dec_Percent decimal(11,8);
+
+
+create table Cost_Per_Person(
+	personName		D_PersonName,
+
+	Jan_Percent		D_Jan_Percent,
+	Feb_Percent		D_Feb_Percent,
+	Mar_Percent		D_Mar_Percent,
+	Apr_Percent		D_Apr_Percent,
+	May_Percent		D_May_Percent,
+	Jun_Percent		D_Jun_Percent,
+	Jul_Percent		D_Jul_Percent,
+	Aug_Percent		D_Aug_Percent,
+	Sep_Percent		D_Sep_Percent,
+	Oct_Percent		D_Oct_Percent,
+	Nov_Percent		D_Nov_Percent,
+	Dec_Percent		D_Dec_Percent,
+	
+	Jan_DKK		D_Jan_DKK,
+	Feb_DKK		D_Feb_DKK,
+	Mar_DKK		D_Mar_DKK,
+	Apr_DKK		D_Apr_DKK,
+	May_DKK		D_May_DKK,
+	Jun_DKK		D_Jun_DKK,
+	Jul_DKK		D_Jul_DKK,
+	Aug_DKK		D_Aug_DKK,
+	Sep_DKK		D_Sep_DKK,
+	Oct_DKK		D_Oct_DKK,
+	Nov_DKK		D_Nov_DKK,
+	Dec_DKK		D_Dec_DKK,
+	
+	Jan_BTC		D_Jan_BTC,
+	Feb_BTC		D_Feb_BTC,
+	Mar_BTC		D_Mar_BTC,
+	Apr_BTC		D_Apr_BTC,
+	May_BTC		D_May_BTC,
+	Jun_BTC		D_Jun_BTC,
+	Jul_BTC		D_Jul_BTC,
+	Aug_BTC		D_Aug_BTC,
+	Sep_BTC		D_Sep_BTC,
+	Oct_BTC		D_Oct_BTC,
+	Nov_BTC		D_Nov_BTC,
+	Dec_BTC		D_Dec_BTC)
+
+
+//////////////////////////////////////////////////////////
+////////////////////////////////////// P | Person
+//////////////////////////////////////////////////////////
+
+create table Profit_Per_Person(
+	personName		D_PersonName,
+
+	Jan_Percent		D_Jan_Percent,
+	Feb_Percent		D_Feb_Percent,
+	Mar_Percent		D_Mar_Percent,
+	Apr_Percent		D_Apr_Percent,
+	May_Percent		D_May_Percent,
+	Jun_Percent		D_Jun_Percent,
+	Jul_Percent		D_Jul_Percent,
+	Aug_Percent		D_Aug_Percent,
+	Sep_Percent		D_Sep_Percent,
+	Oct_Percent		D_Oct_Percent,
+	Nov_Percent		D_Nov_Percent,
+	Dec_Percent		D_Dec_Percent,
+	
+	Jan_BTC		D_Jan_BTC,
+	Feb_BTC		D_Feb_BTC,
+	Mar_BTC		D_Mar_BTC,
+	Apr_BTC		D_Apr_BTC,
+	May_BTC		D_May_BTC,
+	Jun_BTC		D_Jun_BTC,
+	Jul_BTC		D_Jul_BTC,
+	Aug_BTC		D_Aug_BTC,
+	Sep_BTC		D_Sep_BTC,
+	Oct_BTC		D_Oct_BTC,
+	Nov_BTC		D_Nov_BTC,
+	Dec_BTC		D_Dec_BTC)
+
+//////////////////////////////////////////////////////////
+////////////////////////////////////// withdrew
+//////////////////////////////////////////////////////////
+
+create table Withdrawals_Per_Person(
+	personName		D_PersonName,
+	
+	Jan_BTC		D_Jan_BTC,
+	Feb_BTC		D_Feb_BTC,
+	Mar_BTC		D_Mar_BTC,
+	Apr_BTC		D_Apr_BTC,
+	May_BTC		D_May_BTC,
+	Jun_BTC		D_Jun_BTC,
+	Jul_BTC		D_Jul_BTC,
+	Aug_BTC		D_Aug_BTC,
+	Sep_BTC		D_Sep_BTC,
+	Oct_BTC		D_Oct_BTC,
+	Nov_BTC		D_Nov_BTC,
+	Dec_BTC		D_Dec_BTC)
+
+//////////////////////////////////////////////////////////
+////////////////////////////////////// member info
+//////////////////////////////////////////////////////////
+
+create domain D_Email varchar(50);
+create domain D_Wallet varchar(50);
+
+
+create table member_info(
+	personName		D_PersonName,
+	Coinbase_email	D_Email,
+	BTC_wallet		D_Wallet)
+

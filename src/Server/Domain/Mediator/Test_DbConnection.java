@@ -30,6 +30,7 @@ public abstract class Test_DbConnection<T>
 			before = getStats();
 			startTime = System.currentTimeMillis();
 
+			//double execution?
 			runCase();
 
 			endTime = System.currentTimeMillis();
