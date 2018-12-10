@@ -4,7 +4,9 @@ import SharedInterfaces.IClientController;
 import SharedInterfaces.IServerController;
 import SharedInterfaces.Observable;
 import SharedModel.Cost;
+import SharedModel.CostTupleList;
 import SharedModel.Item;
+import SharedModel.ItemTupleList;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -20,6 +22,8 @@ public class ClientController implements IClientController
 
 	public ClientController() throws RemoteException, MalformedURLException, NotBoundException
 	{
+		addThisAsObserver();
+
 		UnicastRemoteObject.exportObject(this, 0);
 		// "rmi://<ip>:<port>/<serverName>
 		iServerController = (IServerController) Naming.lookup("rmi://localhost:1099/iServerController");
@@ -69,11 +73,24 @@ public class ClientController implements IClientController
 		iServerController.addObserver(this);
 	}
 
-
+	/**
+	 * 
+	 * @param obs
+	 * @param arg
+	 */
 	@Override
 	public void notify(Observable obs, String arg)
 	{
-		// TODO change this
+		ArrayList<Cost> temp_costArrayList = CostTupleList.getInstance().getTupleList();
+		ArrayList<Item> temp_itemArrayList = ItemTupleList.getInstance().getTupleList();
+		// TODO when a client is in a certain view, that view info has to be updated
+		// checking what view client is in
+		if(temp_costArrayList.isEmpty() && temp_itemArrayList.isEmpty() /*&& check that all other lists .isEmpty() at the same time*/)
+			return;
+		else if (temp_costArrayList.isEmpty()/* && check if all lists except itemArrList .isEmpty()*/)
+			requestItemRelation();
+		/*TODO add more ifs to check any other client state*/
+
 		System.out.println("Notified, change this");
 	}
 }
