@@ -6,7 +6,6 @@ import SharedInterfaces.Observable;
 import SharedModel.Cost;
 import SharedModel.Item;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -37,6 +36,10 @@ public class ClientController implements IClientController
 		{
 			e.printStackTrace();
 		}
+		catch (RemoteException e)
+		{
+			e.printStackTrace();
+		}
 
 		return null;
 	}
@@ -51,9 +54,12 @@ public class ClientController implements IClientController
 		{
 			e.printStackTrace();
 		}
+		catch (RemoteException e)
+		{
+			e.printStackTrace();
+		}
 
 		return null;
-
 
 
 	}
@@ -63,15 +69,11 @@ public class ClientController implements IClientController
 		iServerController.addObserver(this);
 	}
 
-	@Override
-	public void update(SharedInterfaces.Observable o, Object arg)
-	{
-
-	}
 
 	@Override
-	public void notify(Observable obs, String arg) throws IOException
+	public void notify(Observable obs, String arg)
 	{
-
+		// TODO change this
+		System.out.println("Notified, change this");
 	}
 }

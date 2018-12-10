@@ -1,0 +1,38 @@
+create schema "MARSE";
+set search_path = 'MARSE';
+
+create domain d_serialId integer not null;
+create domain d_OwnerId integer not null;
+create domain d_category varchar (4)
+		constraint c_category CHECK (value in('GPU','CPU','MB','RAM','SSD', 'MISC'));
+create domain d_name varchar(30) not null;
+create domain d_price numeric(1000,2) not null;
+create domain d_qty integer not null;
+create domain d_OrderDate  DATE NOT NULL DEFAULT CURRENT_DATE;
+create domain d_ShippingDate  DATE NOT NULL DEFAULT CURRENT_DATE;
+create domain d_arrivaldate DATE NOT NULL DEFAULT CURRENT_DATE;
+create domain d_Seller text not null;
+create domain d_notes text;
+create domain d_SerialNrNotes text;
+
+create table Item (
+	Serial_ID d_serialID primary key,
+	Category d_category,
+	Owner d_name ,
+	Price d_price,
+	Qty d_qty,
+	OrderDate d_OrderDate,
+	ArrivalDate d_arrivalDate,
+	Seller d_Seller,
+	Notes d_notes,
+	SN_Notes d_SerialNrNotes
+);
+
+select * from Item;
+											  
+create table Owner (
+	OwnerId d_OwnerId primary key,
+	Owner d_name,
+	Email varchar(30),
+	Wallet text
+);
