@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ItemQuerry extends Test_DbConnection<Item> implements IItemPersistance
+public class ItemQuerry extends Test_DbConnection<Item> implements IPersistance
 {
 	public ItemQuerry(Connection iconn)
 	{
@@ -33,8 +33,14 @@ public class ItemQuerry extends Test_DbConnection<Item> implements IItemPersista
 	}
 
 	@Override
-	public ResultSet pullItemResultSet() throws SQLException
+	public ResultSet pullResultSet() throws SQLException
 	{
 		return runCase();
+	}
+
+	@Override
+	public void pushTupleInsertStatement() throws SecurityException
+	{
+
 	}
 }
