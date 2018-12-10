@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CostQuerry extends Test_DbConnection<Cost> implements ICostPersistance
+public class CostQuerry extends Test_DbConnection<Cost> implements IPersistance
 {
 	public CostQuerry(Connection iconn)
 	{
@@ -33,8 +33,14 @@ public class CostQuerry extends Test_DbConnection<Cost> implements ICostPersista
 	}
 
 	@Override
-	public ResultSet pullCostResultSet() throws SQLException
+	public ResultSet pullResultSet() throws SQLException
 	{
 		return runCase();
+	}
+
+	@Override
+	public void pushTupleInsertStatement() throws SecurityException
+	{
+
 	}
 }
