@@ -20,7 +20,7 @@ public class CostModelManager implements IModelManager<Cost>
 	private static CostModelManager instance;
 	private static Lock lock = new ReentrantLock();
 
-	private IPersistance iPersistanceCost = new CostQuerry();
+	private IPersistance iPersistanceCost = new CostQuery();
 
 	private CostModelManager() throws SQLException
 	{
@@ -48,18 +48,26 @@ public class CostModelManager implements IModelManager<Cost>
 
 		while (rsCostTable.next())
 		{
-			// TODO: Double check statement
+			// TODO: Inside the DB edit "serialid" into "serial_id"
 			temp_arr.add(
 					new Cost(
-							rsCostTable.getDouble("amount"),
-							rsCostTable.getDate("date"),
+							rsCostTable.getInt("serial_id"),
+							rsCostTable.getString("category"),
 							new Person(
 									rsCostTable.getString("name"),
 									rsCostTable.getString("coinbaseEmail"),
-									rsCostTable.getString("btcWalletAddres"))
+									rsCostTable.getString("btcWalletAddres")),
+							rsCostTable.getString("description"),
+							rsCostTable.getDouble("ordervalue"),
+							rsCostTable.getDouble("reimbursed"),
+							rsCostTable.getDate("paymentdate"),
+							rsCostTable.getString("status"),
+							rsCostTable.getString("notes")
 					)
 			);
 		}
+		// Freeing up resources
+		rsCostTable.close();
 
 		return temp_arr;
 	}
@@ -71,7 +79,6 @@ public class CostModelManager implements IModelManager<Cost>
 		StringBuilder sb = new StringBuilder();
 
 		// TODO correct SQL statement component names + add missing components (check excel)
-		// sql INSERT command components: insert into "table_name" (col1, col2) values (val1, val2)
 		sb.append("insert into cost_table ( payee, amount, incuredDate ) ");
 
 		sb.append("values (" +
@@ -90,7 +97,6 @@ public class CostModelManager implements IModelManager<Cost>
 		StringBuilder sb = new StringBuilder();
 
 		// TODO correct SQL statement component names + add missing components (check excel)
-		// sql UPDATE command components: update "table_name" set "col1 = val1, col2 = val2" where "condition";
 		sb.append("update cost_table set ");
 
 		sb.append("payee = " + object.getPayee() + "," +

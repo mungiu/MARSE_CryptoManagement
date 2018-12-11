@@ -7,7 +7,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Singleton class establishing a connection to the database on instantiation using the java.sql.Connection class.
+ * Singleton (thread safe) class establishing a connection to the database on instantiation using the java.sql.Connection class.
  * TODO have a connect button in our interface? That will run this?
  */
 public class DbCommunication
@@ -28,12 +28,10 @@ public class DbCommunication
 	{
 		try
 		{
-			// TODO change so it works with postgre SQL
-//			DriverManager.registerDriver(/*new oracle.jdbc.OracleDriver()*/);
-//			FileSearch.forName("org.postgresql.Driver");
+			// NOTE: Oracle connection is implemented differently, check Oracle documentation
 			conn = DriverManager.getConnection(connectString, userName, password);
-
 			conn.setAutoCommit(false);
+
 			// TODO have a logger for all print outs
 			System.out.println("connection established, autocommit off");
 		}
