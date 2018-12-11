@@ -24,15 +24,12 @@ create domain d_month char(3);
 create domain d_MinedBTC numeric(11,8);
 create domain d_Costs decimal(5,2);
 create domain d_otherCosts numeric(11,8);
-create domain d_BTCafterCosts numeric(11,8);
 create domain d_BTCvalue numeric;
-create domain d_minedBTCvalue integer;
 create domain d_costsValue decimal(5,2);
 create domain d_otherCostsValue integer;
 create domain d_GPUdepreciation integer;
 create domain d_MBdepreciation integer;
 create domain d_otherDepreciation integer;
-create domain d_profitLoss integer;
 
 /* creating table for Owner */
 										  
@@ -40,9 +37,7 @@ create table Owner (
 	Owner d_name primary key,
 	Email varchar(30),
 	Wallet text
-);												   
-												   
-												   
+);												   												   
 create table Costs(
 	SerialId serial primary key,
 	Category d_CostsCategory,
@@ -73,37 +68,44 @@ create table Item (
 												   
 create table Profitability(
 	Month d_month,
-	"Mined BTC" d_MinedBTC,
-	"Costs 10%" d_Costs,
-	"Other Costs" d_otherCosts,
-	"BTC After Costs" d_BTCafterCosts,
-	"BTC Value" d_BTCvalue,
-	"Mined BTC value" d_minedBTCvalue,
-	"Costs 10% value" d_costsValue,
-	"Other costs value" d_otherCostsValue,
-	"GPU Depreciation" d_GPUdepreciation,
-	"MB Depreciation" d_MBdepreciation,
-	"Other Depreciation" d_otherDepreciation,
-	"Profit/Loss(EBIT)" d_profitLoss
+	MinedBtc d_MinedBTC,
+	OtherCosts d_otherCosts,
+	BTCValue d_BTCvalue,
+	GPUDepreciation d_GPUdepreciation,
+	MBDepreciation d_MBdepreciation,
+	OtherDepreciation d_otherDepreciation
 );
-	
-select * from Profitability;
+												   
 												   
 /* creating view for Order Value for Items */
 create view ItemOrderValue as 
 		select 	item.Serial_ID, item.Category, item.Owner, item.Price, item.Qty,
 				item.Price*item.Qty as "TotalOrderValue", item.OrderDate,
-		item.ArrivalDate, item.Seller,item.Notes, item.SN_Notes
-			from Item 
-		group by item.Serial_ID, item.Category, item.Owner;
+				item.ArrivalDate, item.Seller,item.Notes, item.SN_Notes
+		from Item 
+	group by item.Serial_ID, item.Category, item.Owner;
 
 	
 /* creating a view for ToBeReimbursed */
 create view ToBeReimbursed as
-			select costs.SerialId, costs.Category, costs.Owner, costs.Description, costs.OrderValue - costs.Reimbursed as "To Be Reimbusred"
-				, costs.paymentdate, costs.status, costs.notes
-				from Costs;
+		select 	costs.SerialId, costs.Category, costs.Owner, costs.Description,
+				costs.OrderValue - costs.Reimbursed as toBeReimbursted, 
+				costs.paymentdate, costs.status, costs.notes
+		from Costs;
+												   
+/* creating a view for Profits */ 
+												   
 
+create view Profitability_full as
+	select profitability.Month, profitability.MinedBtc, profitability.MinedBtc * 0.1 as "Costs 10%",
+		profitability.OtherCosts, profitability.MinedBtc - (profitability.MinedBtc * 0.1)+profitability.OtherCosts as "BTCAfterCosts",
+			profitability.BTCValue, profitability.MinedBtc * profitability.BTCValue as "Mined BTC Value", 
+			 (profitability.MinedBtc * 0.1) * profitability.BTCValue as "Costs 10% value", 
+				profitability.otherCosts * profitability.BTCValue as "Other Costs Value",
+				profitability.GPUDepreciation, profitability.MBDepreciation, profitability.OtherDepreciation
+	from profitability;
+	
+	select * from Profitability_full;
 
 /* Owners */
 												   												  		   
@@ -358,44 +360,34 @@ INSERT INTO Costs(category, owner, Description, OrderValue, Reimbursed, PaymentD
 INSERT INTO Costs(category, owner, Description, OrderValue, Reimbursed, PaymentDate, Status, Notes)
 		VALUES ('ELECTRICITY', 'Vasile/Rodica', '2m.Bill', 2338, 0, '2018-11-18', null, null);
 												   
-INSERT INTO Profitability(month, "Mined BTC", "Costs 10%", "Other Costs", "BTC After Costs", "BTC Value", "Mined BTC value", "Costs 10% value", "Other costs value", "GPU Depreciation", "MB Depreciation", "Other Depreciation", "Profit/Loss(EBIT)")
-	VALUES ('Feb', 0.01741393, null, null, null, 67454, null, null, null, null, null, null, null);
-INSERT INTO Profitability(month, "Mined BTC", "Costs 10%", "Other Costs", "BTC After Costs", "BTC Value", "Mined BTC value", "Costs 10% value", "Other costs value", "GPU Depreciation", "MB Depreciation", "Other Depreciation", "Profit/Loss(EBIT)")
-	VALUES ('Mar', null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO Profitability(month, "Mined BTC", "Costs 10%", "Other Costs", "BTC After Costs", "BTC Value", "Mined BTC value", "Costs 10% value", "Other costs value", "GPU Depreciation", "MB Depreciation", "Other Depreciation", "Profit/Loss(EBIT)")
-	VALUES ('Apr', 0.30635651, null, 0.169970190311824, null, 55850.97, null, null, null, 2882.65789473684, 161.280972222222, 253.145583333333, null);
-INSERT INTO Profitability(month, "Mined BTC", "Costs 10%", "Other Costs", "BTC After Costs", "BTC Value", "Mined BTC value", "Costs 10% value", "Other costs value", "GPU Depreciation", "MB Depreciation", "Other Depreciation", "Profit/Loss(EBIT)")
-	VALUES ('May', 0.14365519, null, 0.0868832743285256, null, 47569.57, null, null, null, 2882.65789473684, 161.280972222222, 253.145583333333, null);
-INSERT INTO Profitability(month, "Mined BTC", "Costs 10%", "Other Costs", "BTC After Costs", "BTC Value", "Mined BTC value", "Costs 10% value", "Other costs value", "GPU Depreciation", "MB Depreciation", "Other Depreciation", "Profit/Loss(EBIT)")
-	VALUES ('Jun', 0.16405244, null, 0, null, 40286.6, null, null, null, 2882.65789473684, 161.280972222222, 253.145583333333, null);
-INSERT INTO Profitability(month, "Mined BTC", "Costs 10%", "Other Costs", "BTC After Costs", "BTC Value", "Mined BTC value", "Costs 10% value", "Other costs value", "GPU Depreciation", "MB Depreciation", "Other Depreciation", "Profit/Loss(EBIT)")
-	VALUES ('Jul', 0.09238587, null, 0.0479562940788347, null, 48711.02, null, null, null, 2882.65789473684, 161.280972222222, 253.145583333333, null);
-INSERT INTO Profitability(month, "Mined BTC", "Costs 10%", "Other Costs", "BTC After Costs", "BTC Value", "Mined BTC value", "Costs 10% value", "Other costs value", "GPU Depreciation", "MB Depreciation", "Other Depreciation", "Profit/Loss(EBIT)")
-	VALUES ('Aug', 0.10565134, null, 0, null, 44566, null, null, null, 2882.65789473684, 161.280972222222, 253.145583333333, null);
-INSERT INTO Profitability(month, "Mined BTC", "Costs 10%", "Other Costs", "BTC After Costs", "BTC Value", "Mined BTC value", "Costs 10% value", "Other costs value", "GPU Depreciation", "MB Depreciation", "Other Depreciation", "Profit/Loss(EBIT)")
-	VALUES ('Sep', 0.09692412, null, 0.0580032900740156, null, 42438, null, null, null, 2811.11842105263, 161.280972222222, 253.145583333333, null);
-INSERT INTO Profitability(month, "Mined BTC", "Costs 10%", "Other Costs", "BTC After Costs", "BTC Value", "Mined BTC value", "Costs 10% value", "Other costs value", "GPU Depreciation", "MB Depreciation", "Other Depreciation", "Profit/Loss(EBIT)")
-	VALUES ('Oct', 0.08324735, null, null, null, 41847.35, null, null, 76, 2811.11842105263, 161.280972222222, 276.445583333333, null);
-INSERT INTO Profitability(month, "Mined BTC", "Costs 10%", "Other Costs", "BTC After Costs", "BTC Value", "Mined BTC value", "Costs 10% value", "Other costs value", "GPU Depreciation", "MB Depreciation", "Other Depreciation", "Profit/Loss(EBIT)")
-	VALUES ('Nov', 0.06776469, null, null, null, 27946.64, null, null, null, null, null, null, null);
-INSERT INTO Profitability(month, "Mined BTC", "Costs 10%", "Other Costs", "BTC After Costs", "BTC Value", "Mined BTC value", "Costs 10% value", "Other costs value", "GPU Depreciation", "MB Depreciation", "Other Depreciation", "Profit/Loss(EBIT)")
-	VALUES ('Dec', null, null, null, null, null, null, null, null, null, null, null, null);
+/* Profitabilty */
+												   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation,OtherDepreciation)
+	VALUES ('Feb', 0.01741393, null, 67454, null, null, null);											   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation,OtherDepreciation)
+	VALUES ('Mar', null, null, null, null, null, null);												   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Apr', 0.30635651, 0.08688327432 , 67454, 2883, 161, 253);												   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('May', 0.14365519 , 0.0868832743285256, 47570, 2883, 161, 253);
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Jun', 0.16405244, 0, 40287, 2883, 161, 253);			   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Jul',0.09238587, 0.0479562940788347, 48711, 2883, 161, 253);											   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Aug', 0.10565134, 0 , 44566, 2883, 161, 253);							   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Sep', 0.09692412 , 0.0580032900740156 , 42438, 2811, 161, 276);
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Oct', 0.08324735, 0.169970190311824, 41847, 2811, 161, 276);			   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Nov', 0.06776469, 0.169970190311824, 27947, 2811, 161, 276);   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Dec', null, null, null, null, null, null);
 
-
-select * from owner;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-							  				 
+		   
+					   
+												   
+												   
+												   
+												   
