@@ -1,0 +1,130 @@
+package JDBC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+
+public class Select_From {
+
+
+public static void main( String args[] )
+     {
+       Connection c = null;
+       Statement stmt = null;
+       try {
+       Class.forName("org.postgresql.Driver");
+         c = DriverManager
+            .getConnection("jdbc:postgresql://localhost:5432/postgres",
+            "postgres", "postgres");
+         c.setAutoCommit(false);
+         System.out.println("Opened database successfully");
+
+         stmt = c.createStatement();
+         ResultSet rs = stmt.executeQuery( "SELECT * FROM \"dreamhome\".staff;" );
+         while ( rs.next() ) {
+            String id = rs.getString("staffno");
+            String  fname = rs.getString("fname");
+            String  lname = rs.getString("lname");
+            float salary = rs.getFloat("salary");
+            System.out.println( "staffno = " + id );
+            System.out.println( "FNAME = " + fname );
+            System.out.println( "Lname = " + lname );
+           System.out.println( "saltopay = " + salary );
+            System.out.println();
+         }
+         rs.close();
+         stmt.close();
+         c.close();
+       } catch ( Exception e ) {
+         System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+         System.exit(0);
+       }
+       System.out.println("Database query ok ");
+     }
+
+
+
+
+
+
+package JDBC;
+
+ 
+import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class Create_Table {
+	
+	   public static void main( String args[] )
+	     {
+	       Connection c = null;
+	       Statement stmt = null;
+	       try {
+	         Class.forName("org.postgresql.Driver");
+	         c = DriverManager
+	 	            .getConnection("jdbc:postgresql://localhost:5432/postgres",
+	 	   	            "postgres", "postgres");
+	         System.out.println("Database open ok");
+
+	         stmt = c.createStatement();
+	         String sql = "CREATE TABLE \"dreamhome\".tabletest1 " +
+	                      "(ID INT PRIMARY KEY     NOT NULL," +
+	                      " NAME           TEXT    NOT NULL, " +
+	                      " AGE            INT     NOT NULL, " +
+	                      " ADDRESS        CHAR(50), " +
+	                      " SALARY         REAL)";
+	         stmt.executeUpdate(sql);
+	         stmt.close();
+	         c.close();
+	       } catch ( Exception e ) {
+	         System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+	         System.exit(0);
+	       }
+	       System.out.println("Database table ok");
+	     }
+	}
+
+
+
+package JDBC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+public class Insert_into {
+	
+   public static void main( String args[] )
+	     {
+	       Connection c = null;
+	       Statement stmt = null;
+	       try {
+	       Class.forName("org.postgresql.Driver");
+	         c = DriverManager
+	            .getConnection("jdbc:postgresql://localhost:5432/postgres",
+	            		"postgres", "postgres");
+	     
+	         System.out.println("Database open ok");
+
+	         stmt = c.createStatement();
+	         String sql = "UPDATE \"dreamhome\".staff set saltopay = 12500.00 where staffno = 'KS03';";
+	         stmt.executeUpdate(sql);
+
+        
+	   
+	         stmt.close();
+	         c.close();
+	       } catch ( Exception e ) {
+	         System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+	         System.exit(0);
+	       }
+	       System.out.println("Database update ok");
+	     }
+	}
+	
+
+

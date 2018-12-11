@@ -64,8 +64,6 @@ public class ClientController implements IClientController
 		}
 
 		return null;
-
-
 	}
 
 	public void addThisAsObserver() throws RemoteException
@@ -74,23 +72,28 @@ public class ClientController implements IClientController
 	}
 
 	/**
-	 * 
-	 * @param obs
-	 * @param arg
+	 * TODO
+	 * Checks what view the client is currently in
+	 * and FORCE updates the data for that specific view by making the client request the data itself.
+	 *
+	 * @param obs The observable object, in this case should be the server.
+	 * @param arg Not yet defined, TODO
 	 */
 	@Override
 	public void notify(Observable obs, String arg)
 	{
 		ArrayList<Cost> temp_costArrayList = CostTupleList.getInstance().getTupleList();
 		ArrayList<Item> temp_itemArrayList = ItemTupleList.getInstance().getTupleList();
-		// TODO when a client is in a certain view, that view info has to be updated
-		// checking what view client is in
-		if(temp_costArrayList.isEmpty() && temp_itemArrayList.isEmpty() /*&& check that all other lists .isEmpty() at the same time*/)
+
+		if (temp_costArrayList.isEmpty() && temp_itemArrayList.isEmpty() /*&& check that all other lists .isEmpty() at the same time*/)
 			return;
 		else if (temp_costArrayList.isEmpty()/* && check if all lists except itemArrList .isEmpty()*/)
 			requestItemRelation();
-		/*TODO add more ifs to check any other client state*/
+		else if (temp_itemArrayList.isEmpty()/* && check if all lists except itemArrList .isEmpty()*/)
+			requestCostRelation();
+		// TODO add more ifs to check any other client state
 
-		System.out.println("Notified, change this");
+		// TODO make a logger class instead of all printouts
+		System.out.println("Current view updated");
 	}
 }
