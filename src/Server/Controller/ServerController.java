@@ -9,7 +9,6 @@ import SharedModel.Item;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.SQLException;
@@ -34,13 +33,13 @@ public class ServerController implements IServerController
 	@Override
 	public ArrayList<Item> executeItemRelationRequest() throws SQLException
 	{
-		return itemModelManager.assembleRelation();
+		return itemModelManager.assembleArrayList();
 	}
 
 	@Override
 	public ArrayList<Cost> executeCostRelationRequest() throws SQLException
 	{
-		return costModelManager.assembleRelation();
+		return costModelManager.assembleArrayList();
 	}
 
 	@Override

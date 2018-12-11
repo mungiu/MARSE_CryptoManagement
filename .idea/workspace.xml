@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="WIP - Database Connection&#10;&quot;JDBC&quot; code imported from .txt file and many more design changes">
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuerry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuerry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RonSQL1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedModel/Cost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedModel/Cost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedModel/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedModel/Item.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,17 +18,18 @@
     <session id="-1927939369">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="34" />
+          <entry key="project.closed" value="37" />
           <entry key="project.open.time.0" value="5" />
-          <entry key="project.open.time.1" value="7" />
+          <entry key="project.open.time.1" value="8" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.14" value="4" />
+          <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.27" value="1" />
@@ -35,29 +39,29 @@
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="36" />
+          <entry key="project.opened" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="247" />
+          <entry key="java" value="265" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="247" />
+          <entry key="JAVA" value="265" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="187" />
-          <entry key="java" value="10769" />
+          <entry key="java" value="15000" />
           <entry key="txt" value="146" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="10769" />
+          <entry key="JAVA" value="15000" />
           <entry key="PLAIN_TEXT" value="333" />
         </counts>
       </usages-collector>
@@ -67,37 +71,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/Test_DbConnection.java">
+        <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="30" column="51" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/IPersistance.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+            <state relative-caret-position="390">
+              <caret line="82" column="61" lean-forward="true" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuerry.java">
+        <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+            <state relative-caret-position="310">
+              <caret line="64" column="63" lean-forward="true" selection-start-line="64" selection-start-column="63" selection-end-line="64" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuerry.java">
+        <entry file="file://$PROJECT_DIR$/src/SharedModel/Item.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+            <state relative-caret-position="496">
+              <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -122,8 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Client/Domain/Mediator/YearlyRelationModelManager.java" />
-        <option value="$PROJECT_DIR$/src/Client/View/ClientController.java" />
         <option value="$PROJECT_DIR$/src/Client/Model/TupleList.java" />
         <option value="$PROJECT_DIR$/src/Client/Controller/ServerController.java" />
         <option value="$PROJECT_DIR$/src/Client/Controller/StartServer.java" />
@@ -137,7 +130,6 @@
         <option value="$PROJECT_DIR$/src/SharedInterfaces/Observable.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/ModelManager.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/CostPersistance.java" />
-        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/IModelManager.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManagerManager.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/DbCostQuerry.java" />
         <option value="$PROJECT_DIR$/src/Client/Model/ItemTupleList.java" />
@@ -150,7 +142,6 @@
         <option value="$PROJECT_DIR$/src/Server/Domain/Model/Cost.java" />
         <option value="$PROJECT_DIR$/src/Client/Model/Cost.java" />
         <option value="$PROJECT_DIR$/src/Client/Controller/StartClient.java" />
-        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/TestingBullshit.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/JDBC/TestingBullshit.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/JDBC/Create_Table.java" />
@@ -158,8 +149,6 @@
         <option value="$PROJECT_DIR$/src/Server/Domain/JDBC/Insert_Into.java" />
         <option value="$PROJECT_DIR$/src/SharedModel/ItemTupleList.java" />
         <option value="$PROJECT_DIR$/src/SharedModel/CostTupleList.java" />
-        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java" />
-        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java" />
         <option value="$PROJECT_DIR$/src/Class.java" />
         <option value="$PROJECT_DIR$/src/FileSearch.java" />
         <option value="$PROJECT_DIR$/src/SharedInterfaces/Observer.java" />
@@ -169,10 +158,16 @@
         <option value="$PROJECT_DIR$/src/SharedInterfaces/IServerController.java" />
         <option value="$PROJECT_DIR$/src/Client/View/StartClient.java" />
         <option value="$PROJECT_DIR$/src/Client/Controller/ClientController.java" />
+        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java" />
+        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/Test_DbConnection.java" />
+        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/IModelManager.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/IPersistance.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuerry.java" />
-        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/Test_DbConnection.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuerry.java" />
+        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java" />
+        <option value="$PROJECT_DIR$/src/SharedModel/Item.java" />
+        <option value="$PROJECT_DIR$/src/SharedModel/Cost.java" />
+        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java" />
       </list>
     </option>
   </component>
@@ -183,10 +178,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="194" />
-    <option name="y" value="-830" />
-    <option name="width" value="1239" />
-    <option name="height" value="676" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1098" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -321,19 +316,35 @@
               <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
               <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="JDBC" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Mediator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="SharedModel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="version c&#9;ACTION&#9;Start.Use.Vcs&#10;version &#9;ACTION&#9;ActivateVersionControlToolWindow" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544172629201" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544457127996" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/postgresql-9.4-1206-jdbc4.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -486,7 +497,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="339" y="-808" width="1296" height="776" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
@@ -495,13 +506,13 @@
       <window_info id="Learn" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.21682848" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.13691275" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" weight="0.3286334" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32765958" />
       <window_info anchor="bottom" id="Run" order="5" weight="0.36117136" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
@@ -516,7 +527,7 @@
       <window_info anchor="right" id="Ant Build" order="5" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.15973154" />
-      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="8" side_tool="true" weight="0.3955224" />
+      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="8" side_tool="true" weight="0.31073827" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -542,20 +553,8 @@
     <entry file="file://$PROJECT_DIR$/src/Client/Domain/Mediator/YearlyFinancialModelManager.java" />
     <entry file="file://$USER_HOME$/Desktop/Sem2_SEP/Database Connection Part/QuestionRunner.java" />
     <entry file="file://$USER_HOME$/Desktop/Sem2_SEP/Database Connection Part/SEP2Demo.java" />
-    <entry file="file://$USER_HOME$/Desktop/Sem2_SEP/Database Connection Part/QuestionOne.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="59" column="5" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="59" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Sem2_SEP/Database Connection Part/QuestionTwo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Sem2_SEP/Database Connection Part/QuestionOne.java" />
+    <entry file="file://$USER_HOME$/Desktop/Sem2_SEP/Database Connection Part/QuestionTwo.java" />
     <entry file="file://$PROJECT_DIR$/src/Client/View/Observer.java" />
     <entry file="file://$PROJECT_DIR$/src/Client/View/IClientController.java" />
     <entry file="file://$PROJECT_DIR$/src/SharedModel/MyDate.java">
@@ -614,13 +613,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/ICostPersistance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/ICostPersistance.java" />
     <entry file="file://$PROJECT_DIR$/src/SharedModel/Person.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -628,29 +621,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SharedModel/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Client/Model/Cost.java" />
-    <entry file="file://$PROJECT_DIR$/src/SharedModel/Cost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Client/View/StartConsole.java" />
-    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/Domain/JDBC/TestingBullshit.java" />
     <entry file="file://$PROJECT_DIR$/src/Server/Domain/JDBC/Insert_Into.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -673,13 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/IModelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SharedModel/CostTupleList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -687,24 +652,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../BasicVirus/src/FileSearch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="625">
           <caret line="71" column="36" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -783,31 +734,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuerry.java">
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/Test_DbConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        <state relative-caret-position="-624">
+          <caret line="33" column="117" selection-start-line="33" selection-start-column="117" selection-end-line="33" selection-end-column="117" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/Test_DbConnection.java">
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="30" column="51" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+        <state relative-caret-position="-431">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2002#2003#0" expanded="true" />
+            <element signature="e#2020#2021#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/IPersistance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
-          <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/IModelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuerry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+        <state relative-caret-position="353">
+          <caret line="43" column="34" lean-forward="true" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuerry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="82" column="61" lean-forward="true" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SharedModel/Cost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+          <folding>
+            <element signature="e#354#355#0" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#450#451#0" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#505#506#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#582#583#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#671#672#0" expanded="true" />
+            <element signature="e#696#697#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#757#758#0" expanded="true" />
+            <element signature="e#809#810#0" expanded="true" />
+            <element signature="e#846#847#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#905#906#0" expanded="true" />
+            <element signature="e#955#956#0" expanded="true" />
+            <element signature="e#990#991#0" expanded="true" />
+            <element signature="e#1025#1026#0" expanded="true" />
+            <element signature="e#1049#1050#0" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
+            <element signature="e#1134#1135#0" expanded="true" />
+            <element signature="e#1168#1169#0" expanded="true" />
+            <element signature="e#1193#1194#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
+            <element signature="e#1280#1281#0" expanded="true" />
+            <element signature="e#1311#1312#0" expanded="true" />
+            <element signature="e#1331#1332#0" expanded="true" />
+            <element signature="e#1373#1374#0" expanded="true" />
+            <element signature="e#1400#1401#0" expanded="true" />
+            <element signature="e#1430#1431#0" expanded="true" />
+            <element signature="e#1449#1450#0" expanded="true" />
+            <element signature="e#1489#1490#0" expanded="true" />
+            <element signature="e#1514#1515#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SharedModel/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="64" column="63" lean-forward="true" selection-start-line="64" selection-start-column="63" selection-end-line="64" selection-end-column="63" />
         </state>
       </provider>
     </entry>
