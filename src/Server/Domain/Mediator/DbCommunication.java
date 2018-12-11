@@ -1,10 +1,21 @@
 package Server.Domain.Mediator;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * Singleton class establishing a connection to the database on instantiation using the java.sql.Connection class.
+ * TODO have a connect button in our interface? That will run this?
+ */
 public class DbCommunication
 {
-	private static Connection conn;
+	private Connection conn;
+
+	private static DbCommunication instance;
+	private static final Lock lock = new ReentrantLock();
 
 	/* connection details */
 	/* connects via TNS */
@@ -13,7 +24,7 @@ public class DbCommunication
 	final static String userName = "mungiu";
 	final static String password = "1111";
 
-	public static void main(String[] args)
+	public DbCommunication() throws SQLException
 	{
 		try
 		{
@@ -23,39 +34,12 @@ public class DbCommunication
 			conn = DriverManager.getConnection(connectString, userName, password);
 
 			conn.setAutoCommit(false);
+			// TODO have a logger for all print outs
 			System.out.println("connection established, autocommit off");
-
-			/*
-			 * Individual questions are instantiated and run here Each question is a
-			 * specialization of the QuestionRunner class
-			 */
-
-//			try
-//			{
-//				QuestionRunner q = new QuestionOne(conn);
-//				q.execute();
-//				q = null;
-//
-//				q = new QuestionTwo(conn);
-//				q.execute();
-//				q = null;
-//
-//
-//				q = new QuestionSeven(conn);
-//				q.execute();
-//				q = null;
-//
-//			}
-//			catch (Exception e)
-//			{
-//				System.out.println("error running case, see messages for details");
-//				System.out.println(e.getMessage());
-//				e.printStackTrace();
-//
-//			}
 		}
 		catch (SQLException e)
 		{
+			// TODO have a logger for all print outs
 			System.out.println("error establishing connection");
 			System.out.println("Connection string in use: " + connectString + "(user/pwd " + userName + "/" + password + ")");
 			System.out.println(e.getMessage());
@@ -65,15 +49,35 @@ public class DbCommunication
 		try
 		{
 			conn.close();
+			// TODO have a logger for all print outs
 			System.out.println("connection closed");
 			conn = null;
 		}
 		catch (SQLException e)
 		{
+			// TODO have a logger for all print outs
 			System.out.println("error closing connection");
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 			System.exit(0);
 		}
+	}
+
+	public static DbCommunication getInstance()
+	{
+		if (instance == null)
+			synchronized (lock)
+			{
+				if (instance == null)
+					return instance;
+			}
+
+		return instance;
+	}
+
+
+	public Connection getConn()
+	{
+		return conn;
 	}
 }

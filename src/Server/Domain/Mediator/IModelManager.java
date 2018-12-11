@@ -5,7 +5,11 @@ import java.util.ArrayList;
 
 public interface IModelManager<T>
 {
-	ArrayList<T> assembleRelation() throws SQLException;
+	ArrayList<T> assembleArrayList() throws SQLException;
+
+	void assembleSQLInsertCommand(T object) throws  SQLException;
+
+	void assembleSQLUpdateCommand(T object) throws SQLException;
 }
 
 
