@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="WIP - Database Connection&#10;&quot;JDBC&quot; code imported from .txt file and many more design changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitcoin_ASTAH_v1.01.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Bitcoin_ASTAH_v1.01.asta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Controller/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Controller/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuerry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuerry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/IModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/IModelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/IPersistance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/IPersistance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuerry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuerry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/Test_DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/Test_DbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SharedModel/Cost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedModel/Cost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SharedModel/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedModel/Item.java" afterDir="false" />
-    </list>
+    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="WIP - Database Connection&#10;&quot;JDBC&quot; code imported from .txt file and many more design changes" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,8 +68,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="69" column="4" lean-forward="true" selection-start-line="69" selection-start-column="4" selection-end-line="82" selection-end-column="61" />
+            <state relative-caret-position="390">
+              <caret line="82" column="61" lean-forward="true" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -805,8 +791,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="69" column="4" lean-forward="true" selection-start-line="69" selection-start-column="4" selection-end-line="82" selection-end-column="61" />
+        <state relative-caret-position="390">
+          <caret line="82" column="61" lean-forward="true" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
         </state>
       </provider>
     </entry>
