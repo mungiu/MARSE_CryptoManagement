@@ -51,18 +51,21 @@ public class ItemModelManager implements IModelManager<Item>
 			// TODO: Double check statement
 			temp_arr.add(
 					new Item(
-							rsItemTable.getString("type"),
-							rsItemTable.getString("brand"),
-							rsItemTable.getString("model"),
-							rsItemTable.getDouble("price"),
-							rsItemTable.getString("seller"),
-							rsItemTable.getString("notes"),
-							rsItemTable.getDate("purchaseDate"),
-							rsItemTable.getDate("arrivalDate"),
+							rsItemTable.getString("serial_id"),
+							rsItemTable.getString("category"),
 							new Person(
 									rsItemTable.getString("name"),
 									rsItemTable.getString("coinbaseEmail"),
-									rsItemTable.getString("btcWalletAddress"))
+									rsItemTable.getString("btcWalletAddress")),
+							rsItemTable.getString("brand"),
+							rsItemTable.getString("model"),
+							rsItemTable.getDouble("price"),
+							rsItemTable.getInt("qty"),
+							rsItemTable.getDate("orderdate"),
+							rsItemTable.getDate("arrivaldate"),
+							rsItemTable.getString("seller"),
+							rsItemTable.getString("notes"),
+							rsItemTable.getString("sn_notes")
 					)
 			);
 		}
