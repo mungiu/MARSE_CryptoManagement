@@ -1,21 +1,24 @@
 package Server.Domain.Mediator;
 
-import SharedModel.Item;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ItemQuerry extends Test_DbConnection<Item> implements IPersistance
+public class ItemQuerry extends DbCommunication implements IPersistance
 {
-	public ItemQuerry(Connection iconn)
+	DbCommunication dbCommunication;
+	Connection conn;
+
+	public ItemQuerry() throws SQLException
 	{
-		this.conn = iconn;
+		super();
+		dbCommunication = DbCommunication.getInstance();
+		conn = dbCommunication.getConn();
 	}
 
 	@Override
-	public ResultSet runCase() throws SQLException
+	public ResultSet pullResultSet() throws SQLException
 	{
 		// TODO: Double check statement
 		PreparedStatement stmtPullItemRelation = conn.prepareCall("select * from itemTable");
@@ -27,20 +30,33 @@ public class ItemQuerry extends Test_DbConnection<Item> implements IPersistance
 		rsItemTable.close();
 		stmtPullItemRelation.close();
 
+		// TODO replace with a logger
 		System.out.println("Cost Query execution finalized.");
 		return rsItemTable;
 		//TODO remember to nullify rsItemTable after its sent to the client
 	}
 
 	@Override
-	public ResultSet pullResultSet() throws SQLException
+	public void pushInsertCommand(String sqlInsertCommand) throws SecurityException, SQLException
 	{
-		return runCase();
+		PreparedStatement stmtTupleInsert = conn.prepareCall(sqlInsertCommand);
+
+		stmtTupleInsert.execute();
+		stmtTupleInsert.close();
+
+		// TODO replace with a logger
+		System.out.println("Cost tuple insertion executed");
 	}
 
 	@Override
-	public void pushTupleInsertStatement() throws SecurityException
+	public void pushUpdateCommand(String sqlUpdateCommand) throws SecurityException, SQLException
 	{
+		PreparedStatement stmtTupleUpdate = conn.prepareCall(sqlUpdateCommand);
 
+		stmtTupleUpdate.execute();
+		stmtTupleUpdate.close();
+
+		// TODO replace with a logger
+		System.out.println("Cost tuple update execute");
 	}
 }

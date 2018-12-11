@@ -28,4 +28,94 @@ public class Item implements Serializable
 		this.arrivalDate = arrivalDate;
 		this.owner = owner;
 	}
+
+	public String getModel()
+	{
+		return model;
+	}
+
+	public void setModel(String model)
+	{
+		this.model = model;
+	}
+
+	public String getType()
+	{
+		return type;
+	}
+
+	public void setType(String type)
+	{
+		this.type = type;
+	}
+
+	public String getBrand()
+	{
+		return brand;
+	}
+
+	public void setBrand(String brand)
+	{
+		this.brand = brand;
+	}
+
+	public String getSeller()
+	{
+		return seller;
+	}
+
+	public void setSeller(String seller)
+	{
+		this.seller = seller;
+	}
+
+	public String getNotes()
+	{
+		return notes;
+	}
+
+	public void setNotes(String notes)
+	{
+		this.notes = notes;
+	}
+
+	public double getPrice()
+	{
+		return price;
+	}
+
+	public void setPrice(double price)
+	{
+		this.price = price;
+	}
+
+	public Date getPurchaseDate()
+	{
+		return purchaseDate;
+	}
+
+	public void setPurchaseDate(Date purchaseDate)
+	{
+		this.purchaseDate = purchaseDate;
+	}
+
+	public Date getArrivalDate()
+	{
+		return arrivalDate;
+	}
+
+	public void setArrivalDate(Date arrivalDate)
+	{
+		this.arrivalDate = arrivalDate;
+	}
+
+	public Person getOwner()
+	{
+		return owner;
+	}
+
+	public void setOwner(Person owner)
+	{
+		this.owner = owner;
+	}
 }

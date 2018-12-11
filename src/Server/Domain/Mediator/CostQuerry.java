@@ -1,21 +1,24 @@
 package Server.Domain.Mediator;
 
-import SharedModel.Cost;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CostQuerry extends Test_DbConnection<Cost> implements IPersistance
+public class CostQuerry extends DbCommunication implements IPersistance
 {
-	public CostQuerry(Connection iconn)
+	DbCommunication dbCommunication;
+	Connection conn;
+
+	public CostQuerry() throws SQLException
 	{
-		this.conn = iconn;
+		super();
+		dbCommunication = DbCommunication.getInstance();
+		conn = dbCommunication.getConn();
 	}
 
 	@Override
-	public ResultSet runCase() throws SQLException
+	public ResultSet pullResultSet() throws SQLException
 	{
 		// TODO: Double check statement
 		PreparedStatement stmtPullCostRelation = conn.prepareCall("select * from costTable");
@@ -27,21 +30,33 @@ public class CostQuerry extends Test_DbConnection<Cost> implements IPersistance
 		rsCostTable.close();
 		stmtPullCostRelation.close();
 
+		// TODO replace with a logger
 		System.out.println("Cost Query execution finalized.");
 		return rsCostTable;
 		//TODO remember to nullify rsItemTable after its sent to the client
 	}
 
 	@Override
-	public ResultSet pullResultSet() throws SQLException
+	public void pushInsertCommand(String sqlInsertCommand) throws SecurityException, SQLException
 	{
-		// TODO Run case is called twice
-		return runCase();
+		PreparedStatement stmtTupleInsert = conn.prepareCall(sqlInsertCommand);
+
+		stmtTupleInsert.execute();
+		stmtTupleInsert.close();
+
+		// TODO replace with a logger
+		System.out.println("Cost tuple insertion executed");
 	}
 
 	@Override
-	public void pushTupleInsertStatement() throws SecurityException
+	public void pushUpdateCommand(String sqlUpdateCommand) throws SecurityException, SQLException
 	{
-		// TODO Check if this has to be in a separate class AKA one class per SQL statement
+		PreparedStatement stmtTupleUpdate = conn.prepareCall(sqlUpdateCommand);
+
+		stmtTupleUpdate.execute();
+		stmtTupleUpdate.close();
+
+		// TODO replace with a logger
+		System.out.println("Cost tuple update execute");
 	}
 }

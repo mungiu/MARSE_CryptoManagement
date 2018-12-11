@@ -15,4 +15,36 @@ public class Cost implements Serializable
 		this.payee = payee;
 		this.incuredDate = incuredDate;
 	}
+
+	public double getAmount()
+	{
+		return amount;
+	}
+
+	public void setAmount(double amount)
+	{
+		this.amount = amount;
+	}
+
+	public Date getIncuredDate()
+	{
+		return incuredDate;
+	}
+
+	public void setIncuredDate(Date incuredDate)
+	{
+		this.incuredDate = incuredDate;
+	}
+
+	public Person getPayee()
+	{
+		return payee;
+	}
+
+	public void setPayee(Person payee)
+	{
+		this.payee = payee;
+	}
+
+
 }
