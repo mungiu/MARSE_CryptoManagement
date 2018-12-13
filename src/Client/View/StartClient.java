@@ -23,9 +23,9 @@ public class StartClient
 
 		while (true)
 		{
-			if (keyboard.nextLine().equals("cost"))
+			if (keyboard.nextLine().equals("costs"))
 				iClientController.requestCostRelation();
-			else if (keyboard.nextLine().equals("item"))
+			else if (keyboard.nextLine().equals("items"))
 				iClientController.requestItemRelation();
 		}
 	}

@@ -7,7 +7,7 @@ public class Item implements Serializable
 {
 	private String serial_id;
 	private String category;
-	private Person owner;
+	private Owner owner;
 	private String brand;
 	private String model;
 	private double price;
@@ -18,7 +18,7 @@ public class Item implements Serializable
 	private String notes;
 	private String sn_notes;
 
-	public Item(String serial_id, String category, Person owner, String brand, String model, double price, int qty,
+	public Item(String serial_id, String category, Owner owner, String brand, String model, double price, int qty,
 				Date orderDate, Date arrivalDate, String seller, String notes, String sn_notes)
 	{
 		this.serial_id = serial_id;
@@ -55,12 +55,12 @@ public class Item implements Serializable
 		this.category = category;
 	}
 
-	public Person getOwner()
+	public Owner getOwner()
 	{
 		return owner;
 	}
 
-	public void setOwner(Person owner)
+	public void setOwner(Owner owner)
 	{
 		this.owner = owner;
 	}

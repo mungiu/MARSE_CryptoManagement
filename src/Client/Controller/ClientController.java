@@ -22,11 +22,11 @@ public class ClientController implements IClientController
 
 	public ClientController() throws RemoteException, MalformedURLException, NotBoundException
 	{
-		addThisAsObserver();
-
 		UnicastRemoteObject.exportObject(this, 0);
 		// "rmi://<ip>:<port>/<serverName>
 		iServerController = (IServerController) Naming.lookup("rmi://localhost:1099/iServerController");
+
+		addThisAsObserver();
 	}
 
 
