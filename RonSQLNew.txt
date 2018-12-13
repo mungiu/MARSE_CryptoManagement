@@ -39,7 +39,7 @@ create table Owner (
 	Wallet text
 );												   												   
 create table Costs(
-	SerialId serial primary key,
+	Serial_Id serial primary key,
 	Category d_CostsCategory,
 	Owner d_name ,
 	Description D_description,
@@ -77,7 +77,7 @@ create table Profitability(
 );
 												   
 												   
-/* creating view for Order Value for Items */
+/* creating view for Order Value for Items  */
 create view ItemOrderValue as 
 		select 	item.Serial_ID, item.Category, item.Owner, item.Price, item.Qty,
 				item.Price*item.Qty as "TotalOrderValue", item.OrderDate,
@@ -88,7 +88,7 @@ create view ItemOrderValue as
 	
 /* creating a view for ToBeReimbursed */
 create view ToBeReimbursed as
-		select 	costs.SerialId, costs.Category, costs.Owner, costs.Description,
+		select 	costs.Serial_Id, costs.Category, costs.Owner, costs.Description,
 				costs.OrderValue - costs.Reimbursed as toBeReimbursted, 
 				costs.paymentdate, costs.status, costs.notes
 		from Costs;
@@ -96,16 +96,24 @@ create view ToBeReimbursed as
 /* creating a view for Profits */ 
 												   
 
-create view Profitability_full as
+create view Profitability_full3 as
 	select profitability.Month, profitability.MinedBtc, profitability.MinedBtc * 0.1 as "Costs 10%",
-		profitability.OtherCosts, profitability.MinedBtc - (profitability.MinedBtc * 0.1)+profitability.OtherCosts as "BTCAfterCosts",
+			profitability.OtherCosts, profitability.MinedBtc - (profitability.MinedBtc * 0.1)+profitability.OtherCosts as "BTCAfterCosts",
 			profitability.BTCValue, profitability.MinedBtc * profitability.BTCValue as "Mined BTC Value", 
-			 (profitability.MinedBtc * 0.1) * profitability.BTCValue as "Costs 10% value", 
-				profitability.otherCosts * profitability.BTCValue as "Other Costs Value",
-				profitability.GPUDepreciation, profitability.MBDepreciation, profitability.OtherDepreciation
-	from profitability;
-	
-	select * from Profitability_full;
+			(profitability.MinedBtc * 0.1) * profitability.BTCValue as "Costs 10% value", 
+			profitability.otherCosts * profitability.BTCValue as "Other Costs Value",
+			profitability.GPUDepreciation, profitability.MBDepreciation, profitability.OtherDepreciation,
+			(profitability.MinedBtc * 0.1) * profitability.BTCValue + profitability.otherCosts * profitability.BTCValue + 
+			profitability.GPUDepreciation + profitability.MBDepreciation + profitability.OtherDepreciation - profitability.MinedBtc * profitability.BTCValue as "Profti/Loss (EBIT)"
+		
+						    
+	from profitability
+	group by profitability.MinedBtc, profitability.MinedBtc,profitability.Month,profitability.OtherCosts, profitability.BTCValue,
+					profitability.GPUDepreciation, profitability.MBDepreciation, profitability.OtherDepreciation	;						   
+												   
+												   
+												   
+	select * from Profitability_full3;
 
 /* Owners */
 												   												  		   
@@ -367,7 +375,7 @@ INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation
 INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation,OtherDepreciation)
 	VALUES ('Mar', null, null, null, null, null, null);												   
 INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
-	VALUES ('Apr', 0.30635651, 0.08688327432 , 67454, 2883, 161, 253);												   
+	VALUES ('Apr', 0.30635651, 0.169970190311824 , 55851, 2883, 161, 253);												   
 INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
 	VALUES ('May', 0.14365519 , 0.0868832743285256, 47570, 2883, 161, 253);
 INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
