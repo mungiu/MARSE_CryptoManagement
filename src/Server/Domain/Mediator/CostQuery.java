@@ -2,7 +2,6 @@ package Server.Domain.Mediator;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CostQuery extends DbCommunication implements IPersistance
@@ -18,18 +17,13 @@ public class CostQuery extends DbCommunication implements IPersistance
 	}
 
 	@Override
-	public ResultSet pullResultSet() throws SQLException
+	public PreparedStatement getPreparedStatement() throws SQLException
 	{
-		// TODO check is this is the correct way to select from a table AKA should schema be specified or not?
-		PreparedStatement stmtPullCostRelation = conn.prepareCall("select * from costs");
-		ResultSet rsCostTable = stmtPullCostRelation.executeQuery();
-		// freeing up resources used by the PreparedStatement since it has been executed and its result stored
-		stmtPullCostRelation.close();
-		conn.close();
+		PreparedStatement stmtPullCostRelation = conn.prepareCall("select * from costs;");
 
 		// TODO replace with a logger
 		System.out.println("Cost query execution finalized.");
-		return rsCostTable;
+		return stmtPullCostRelation;
 	}
 
 	@Override

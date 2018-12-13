@@ -4,6 +4,7 @@ import SharedModel.Item;
 import SharedModel.ItemTupleList;
 import SharedModel.Owner;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -41,7 +42,8 @@ public class ItemModelManager implements IModelManager<Item>
 	@Override
 	public ArrayList<Item> assembleArrayList() throws SQLException
 	{
-		ResultSet rsItemTable = iPersistanceItem.pullResultSet();
+		PreparedStatement stmtPullItemRelation = iPersistanceItem.getPreparedStatement();
+		ResultSet rsItemTable = stmtPullItemRelation.executeQuery();
 
 		ItemTupleList temp_itemTupleList = ItemTupleList.getInstance();
 		ArrayList<Item> temp_arr = temp_itemTupleList.getTupleList();
@@ -68,8 +70,8 @@ public class ItemModelManager implements IModelManager<Item>
 					)
 			);
 		}
-		// Freeing up resources
-		rsItemTable.close();
+		// this also closes the ResultSet
+		stmtPullItemRelation.close();
 
 		return temp_arr;
 	}

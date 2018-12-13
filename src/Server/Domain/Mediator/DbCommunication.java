@@ -14,7 +14,7 @@ public class DbCommunication
 {
 	private Connection conn;
 
-	final static String connectString = "jdbc:postgresql://localhost:5432/postgres?currentSchema=MARSE";
+	final static String connectString = "jdbc:postgresql://localhost:5432/postgres";
 	final static String userName = "postgres";
 	final static String password = "1111";
 	private int count = 0;
@@ -25,6 +25,7 @@ public class DbCommunication
 		{
 			// NOTE: Oracle connection is implemented differently, check Oracle documentation
 			conn = DriverManager.getConnection(connectString, userName, password);
+			conn.setSchema("MARSE");
 			// TODO AutoCommi off?
 //			conn.setAutoCommit(false);
 
