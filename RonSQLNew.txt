@@ -6,7 +6,7 @@ create domain d_ItemCategory varchar (4)
 create domain d_CostsCategory varchar (20)
 		constraint c_CostsCategory CHECK (value in('LOGISTICS', 'PROJECT', 'ELECTRICITY', 'HIVEOS'));						  											  								  
 create domain d_name varchar(30) not null;
-create domain d_price numeric(1000,2) not null;
+create domain d_price numeric(10,2) not null;
 create domain d_qty integer not null;
 create domain d_OrderDate  DATE NOT NULL DEFAULT CURRENT_DATE;
 create domain d_ShippingDate  DATE NOT NULL DEFAULT CURRENT_DATE;
@@ -17,9 +17,19 @@ create domain d_SerialNrNotes text;
 create domain d_Brand text;
 create domain d_model text;
 create domain d_description text;
-create domain d_Reimbursed numeric(1000,2) not null;
-create domain d_ToBeReimbursed numeric(1000,2) not null;
+create domain d_Reimbursed numeric(10,2) not null;
+create domain d_ToBeReimbursed numeric(10,2) not null;
 create domain d_Status text;
+create domain d_month char(3);
+create domain d_MinedBTC numeric(11,8);
+create domain d_Costs decimal(5,2);
+create domain d_otherCosts numeric(11,8);
+create domain d_BTCvalue numeric;
+create domain d_costsValue decimal(5,2);
+create domain d_otherCostsValue integer;
+create domain d_GPUdepreciation integer;
+create domain d_MBdepreciation integer;
+create domain d_otherDepreciation integer;
 
 /* creating table for Owner */
 										  
@@ -27,9 +37,7 @@ create table Owner (
 	Owner d_name primary key,
 	Email varchar(30),
 	Wallet text
-);
-	
-
+);												   												   
 create table Costs(
 	SerialId serial primary key,
 	Category d_CostsCategory,
@@ -57,7 +65,80 @@ create table Item (
 	Notes d_notes,
 	SN_Notes d_SerialNrNotes
 );
+												   
+create table Profitability(
+	Month d_month,
+	MinedBtc d_MinedBTC,
+	OtherCosts d_otherCosts,
+	BTCValue d_BTCvalue,
+	GPUDepreciation d_GPUdepreciation,
+	MBDepreciation d_MBdepreciation,
+	OtherDepreciation d_otherDepreciation
+);
+												   
+												   
+/* creating view for Order Value for Items */
+create view ItemOrderValue as 
+		select 	item.Serial_ID, item.Category, item.Owner, item.Price, item.Qty,
+				item.Price*item.Qty as "TotalOrderValue", item.OrderDate,
+				item.ArrivalDate, item.Seller,item.Notes, item.SN_Notes
+		from Item 
+	group by item.Serial_ID, item.Category, item.Owner;
 
+	
+/* creating a view for ToBeReimbursed */
+create view ToBeReimbursed as
+		select 	costs.SerialId, costs.Category, costs.Owner, costs.Description,
+				costs.OrderValue - costs.Reimbursed as toBeReimbursted, 
+				costs.paymentdate, costs.status, costs.notes
+		from Costs;
+												   
+/* creating a view for Profits */ 
+												   
+
+create view Profitability_full as
+	select profitability.Month, profitability.MinedBtc, profitability.MinedBtc * 0.1 as "Costs 10%",
+		profitability.OtherCosts, profitability.MinedBtc - (profitability.MinedBtc * 0.1)+profitability.OtherCosts as "BTCAfterCosts",
+			profitability.BTCValue, profitability.MinedBtc * profitability.BTCValue as "Mined BTC Value", 
+			 (profitability.MinedBtc * 0.1) * profitability.BTCValue as "Costs 10% value", 
+				profitability.otherCosts * profitability.BTCValue as "Other Costs Value",
+				profitability.GPUDepreciation, profitability.MBDepreciation, profitability.OtherDepreciation
+	from profitability;
+	
+	select * from Profitability_full;
+
+/* Owners */
+												   												  		   
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('Jakub Duchon', 'jakub.duchon9@gmail.com', null );	
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('Mikkel Kofer', 'dinvenmikkel@gmail.com', null );	
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('Herman Trakachenok', null , '3KwXJCQc8fKvU4oEkwSkPVQLLh7YH1Q8s7' );	
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('Cristian Scobiola', null, '14V4waUGBJUuUxLoBNXvcJsN52En2bUxst' );	
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('Damian Seu', 'my own acc', 'my own acc' );	
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('William', 'williamdissing@gmail.com', null);	
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('Dumitru Karpov', 'petfam04@yahoo.com',null);	
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('Petru Dascal', 'petea11@yahoo.com', null );	
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('Andrei Mungiu', 'andrei_mungiu@yahoo.com', null );
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('Vasile/Rodica', 'my own acc', 'my own acc' );												   
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('Arthur Cohrt Hillgaard', 'Arthurjan3@gmail.com', null );	
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('JMP', null, null );
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('Nicolae Gheorghita', 'nicolae.gheorghita@hotmail.com', null );													   
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('Valentin Graur', 'my own acc', 'my own acc' );	
+INSERT INTO Owner(Owner, Email, wallet)
+	VALUES ('Emil Juel Andersen', 'emiljuelandersen@gmail.com', null );	
 											  
 /* GPU */
 
@@ -278,35 +359,35 @@ INSERT INTO Costs(category, owner, Description, OrderValue, Reimbursed, PaymentD
 		VALUES ('HIVEOS', 'Andrei Mungiu', '1m.Bill', 76, 0, '2018-10-01', null, null);
 INSERT INTO Costs(category, owner, Description, OrderValue, Reimbursed, PaymentDate, Status, Notes)
 		VALUES ('ELECTRICITY', 'Vasile/Rodica', '2m.Bill', 2338, 0, '2018-11-18', null, null);
+												   
+/* Profitabilty */
+												   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation,OtherDepreciation)
+	VALUES ('Feb', 0.01741393, null, 67454, null, null, null);											   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation,OtherDepreciation)
+	VALUES ('Mar', null, null, null, null, null, null);												   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Apr', 0.30635651, 0.08688327432 , 67454, 2883, 161, 253);												   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('May', 0.14365519 , 0.0868832743285256, 47570, 2883, 161, 253);
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Jun', 0.16405244, 0, 40287, 2883, 161, 253);			   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Jul',0.09238587, 0.0479562940788347, 48711, 2883, 161, 253);											   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Aug', 0.10565134, 0 , 44566, 2883, 161, 253);							   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Sep', 0.09692412 , 0.0580032900740156 , 42438, 2811, 161, 276);
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Oct', 0.08324735, 0.169970190311824, 41847, 2811, 161, 276);			   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Nov', 0.06776469, 0.169970190311824, 27947, 2811, 161, 276);   
+INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
+	VALUES ('Dec', null, null, null, null, null, null);
 
-
-
-/* creating view for Order Value for Items */
-create view ItemOrderValue as 
-		select 	item.Serial_ID, item.Category, item.Owner, item.Price, item.Qty,
-				item.Price*item.Qty as "TotalOrderValue", item.OrderDate,
-		item.ArrivalDate, item.Seller,item.Notes, item.SN_Notes
-			from Item 
-		group by item.Serial_ID, item.Category, item.Owner;
-
-	
-/* creating a view for ToBeReimbursed */
-create view ToBeReimbursed as
-			select costs.SerialId, costs.Category, costs.Owner, costs.Description, costs.OrderValue - costs.Reimbursed as "To Be Reimbusred"
-				, costs.paymentdate, costs.status, costs.notes
-				from Costs;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-							  				 
+		   
+					   
+												   
+												   
+												   
+												   

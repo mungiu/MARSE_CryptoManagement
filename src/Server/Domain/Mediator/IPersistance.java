@@ -7,5 +7,7 @@ public interface IPersistance
 {
 	ResultSet pullResultSet() throws SQLException;
 
-	void pushTupleInsertStatement() throws SecurityException;
+	void pushInsertCommand(String sqlInsertCommand) throws SecurityException, SQLException;
+
+	void pushUpdateCommand(String sqlUpdateCommand) throws SecurityException, SQLException;
 }

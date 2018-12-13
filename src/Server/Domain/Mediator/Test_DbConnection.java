@@ -16,7 +16,7 @@ public abstract class Test_DbConnection<T>
 	private final int recursiveCalls = 7;
 	private final int parseCountDescribe = 8;
 
-	public void execute() throws SQLException
+	public void executeTest() throws SQLException
 	{
 		try
 		{
@@ -27,10 +27,11 @@ public abstract class Test_DbConnection<T>
 
 			clearSharedPool();
 
+			// array filled with statistical numbers
 			before = getStats();
 			startTime = System.currentTimeMillis();
 
-			//double execution?
+			// TODO redefine this method is the main thing that execute SQL commands and runs through what it returns
 			runCase();
 
 			endTime = System.currentTimeMillis();
@@ -68,6 +69,7 @@ public abstract class Test_DbConnection<T>
 	private void clearSharedPool() throws SQLException
 	{
 		Statement stmt = conn.createStatement();
+		// TODO ask Bo or Jens what does this button do?????
 		stmt.execute("alter system flush shared_pool");
 		stmt.close();
 	}
@@ -93,6 +95,7 @@ public abstract class Test_DbConnection<T>
 	private int getNamedStatistic(String statName) throws SQLException
 	{
 		int statValue = 0;
+		// TODO ask Bo or Jens what does this button do?????
 		PreparedStatement stmt = conn.prepareStatement("select value "
 				+ " from v$sesstat st  join v$statname nm on (st.statistic# = nm.statistic#)"
 				+ " where nm.name = ? " + "  and  st.sid = sys_context('userenv','sid')");
