@@ -7,23 +7,24 @@ import java.sql.SQLException;
 
 public class ItemQuery extends DbCommunication implements IPersistance
 {
-	DbCommunication dbCommunication;
+	//	DbCommunication dbCommunication;
 	Connection conn;
 
 	public ItemQuery() throws SQLException
 	{
 		super();
-		dbCommunication = DbCommunication.getInstance();
-		conn = dbCommunication.getConn();
+//		dbCommunication = DbCommunication.getInstance();
+		conn = super.getConn();
 	}
 
 	@Override
 	public ResultSet pullResultSet() throws SQLException
 	{
-		PreparedStatement stmtPullItemRelation = conn.prepareCall("select * from item");
+		PreparedStatement stmtPullItemRelation = conn.prepareCall("select * from items");
 		ResultSet rsItemTable = stmtPullItemRelation.executeQuery();
 		// freeing up resources used by the PreparedStatement since it has been executed and its result stored
 		stmtPullItemRelation.close();
+		conn.close();
 
 		// TODO replace with a logger
 		System.out.println("Item query execution finalized.");
