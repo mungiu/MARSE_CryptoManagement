@@ -1,7 +1,7 @@
 create schema "MARSE";
 set search_path = 'MARSE';
 												  
-create domain d_ItemCategory varchar (4)
+create domain d_ItemsCategory varchar (4)
 		constraint c_category CHECK (value in('GPU','CPU','PSU','MB','RAM','SSD', 'MISC'));
 create domain d_CostsCategory varchar (20)
 		constraint c_CostsCategory CHECK (value in('LOGISTICS', 'PROJECT', 'ELECTRICITY', 'HIVEOS'));						  											  								  
@@ -51,9 +51,9 @@ create table Costs(
 												   										   
 												   								  
 
-create table Item (
+create table Items (
 	Serial_ID serial primary key,
-	Category d_ItemCategory,
+	Category d_ItemsCategory,
 	Owner d_name ,
 	Brand d_brand,
 	Model d_model,
@@ -75,15 +75,15 @@ create table Profitability(
 	MBDepreciation d_MBdepreciation,
 	OtherDepreciation d_otherDepreciation
 );
+											   
 												   
-												   
-/* creating view for Order Value for Items  */
-create view ItemOrderValue as 
-		select 	item.Serial_ID, item.Category, item.Owner, item.Price, item.Qty,
-				item.Price*item.Qty as "TotalOrderValue", item.OrderDate,
-				item.ArrivalDate, item.Seller,item.Notes, item.SN_Notes
-		from Item 
-	group by item.Serial_ID, item.Category, item.Owner;
+/* creating view for Order Value for Itemss  */
+create view ItemsOrderValue as 
+		select 	Items.Serial_ID, Items.Category, Items.Owner, Items.Price, Items.Qty,
+				Items.Price*Items.Qty as "TotalOrderValue", Items.OrderDate,
+				Items.ArrivalDate, Items.Seller,Items.Notes, Items.SN_Notes
+		from Items 
+	group by Items.Serial_ID, Items.Category, Items.Owner;
 
 	
 /* creating a view for ToBeReimbursed */
@@ -94,6 +94,7 @@ create view ToBeReimbursed as
 		from Costs;
 												   
 /* creating a view for Profits */ 
+
 												   
 
 create view Profitability_full3 as
@@ -114,6 +115,34 @@ create view Profitability_full3 as
 												   
 												   
 	select * from Profitability_full3;
+
+
+/* TEMPORARY * /
+
+create domain d_mbLifespan integer;
+create domain d_gpuLifespan integer;
+create domain d_otherLifespan integer;
+create domain d_gpuAssets decimal(5,2);
+create domain d_mbAssets decimal(5,2);
+create domain d_otherAssets decimal(5,2);
+create domain d_totalAssets integer;
+
+create table Factors(
+		"MB Lifespan" d_mbLifespan,
+		"GPU Lifespan" d_gpuLifespan,
+		"Other Lifespan" d_otherLifespan,
+		"GPU Assets" d_gpuAssets,
+		"MB Assets" d_mbAssets,
+		"Other Assets" d_otherAssets,
+		"Total Assets" d_totalAssets
+);
+
+INSERT INTO Factors("MB Lifespan", "GPU Lifespan", "Other Lifespan", "GPU Assets", "MB Assets", "Other Assets", "Total Assets")
+	VALUES (72, 38, 120, null, null, null, null);	
+
+/* Temporary END* /
+
+
 
 /* Owners */
 												   												  		   
@@ -150,147 +179,147 @@ INSERT INTO Owner(Owner, Email, wallet)
 											  
 /* GPU */
 
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'Mikkel Kofer', 'ASUS', 'GTX 1060 O3GB', 1825, 4, '2018-01-14', '2018-01-17', 'Foniks', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'Herman Trakachenok', 'ASUS', 'GTX 1060 O3GB', 1825, 4, '2018-01-14', '2018-01-17', 'Foniks', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'Cristian Scobiola', 'ASUS', 'GTX 1060 O3GB', 2336, 1, '2018-01-18', '2018-01-25', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'Damian Seu', 'GIGABYTE', 'GTX 1060 3GB', 2197, 2, '2018-01-20', '2018-01-29', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'William', 'Zotac', 'GTX 1060 3GB Amp Edition', 2216, 3, '2018-01-28', '2018-02-12', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'William', 'Zotac', 'GTX 1060 3GB Amp Edition', 2216, 3, '2018-01-28', '2018-02-12', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'William', 'ASUS', 'GTX 1060 O3GB', 2099, 10, '2018-01-28', '2018-02-02', 'Foniks', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'William', 'Gainward', 'GTX 1060 3GB', 2326, 4, '2018-01-29', '2018-02-13', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'William', 'GIGABYTE', 'GTX 1060 3GB', 2180, 1, '2018-01-29', '2018-02-08', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'William', 'GIGABYTE', 'GTX 1060 3GB', 2270, 1, '2018-01-29', '2018-02-08', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'Dumitru Karpov', 'ASUS', 'GTX 1060 O3GB', 2299, 3, '2018-02-11', '2018-02-13', 'Foniks', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'Arthur Cohrt Hillgaard', 'GIGABYTE', 'GTX 1060 3GB dual', 2265, 1, '2018-02-05', '2018-02-12', 'Amazon.de(Foreign)', '1', null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'Jakub Duchon', 'ASUS', 'GTX 1060 O3GB', 2293, 2, '2018-02-16', '2018-02-20', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'Valentin Graur', 'GIGABYTE', 'GTX 1060 O6GB', 2823, 2, '2018-03-29', '2018-04-09', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'Nicolae Gheorghita', 'ASUS', 'GTX 1060 O6GB', 3020, 2, '2018-04-03', '2018-04-10', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'Emil Juel Andersen', 'GIGABYTE', 'GTX 1060 black/orange', 3100, 3, '2018-05-01', '2018-05-13', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('GPU', 'Emil Juel Andersen', 'ASUS', 'GTX 1060 6GB dual', 2458, 3, '2018-05-01', '2018-05-13', 'Amazon.de', null, null);
 
 /* PSU */											  
 											  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('PSU', 'Andrei Mungiu', 'Corsair', 'RM1000i', 1337, 1, '2018-01-08', '2018-01-16', 'Amazon.de', null, null);											  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('PSU', 'Vasile/Rodica', 'Corsair', 'RM1000i', 1337, 1, '2018-01-08', '2018-01-16', 'Amazon.de', null, null);											  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('PSU', 'William', 'Corsair', 'RM1000x', 2290, 1, '2018-01-28', '2018-03-02', 'Amazon.de', null, null);											  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('PSU', 'William', 'Corsair', 'RM1000x', 2652, 1, '2018-01-28', '2018-02-10', 'Amazon.de', null, null);	
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('PSU', 'William', 'Corsair', 'RM850x', 1049, 2, '2018-01-28', '2018-02-02', 'Amazon.de', null, '17457167 - CP-9020093-EU SN:7590918   /    #2 SN:7590916');		
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('PSU', 'Petru Dascal', 'Corsair', 'RM1000x', 1747, 1, '2018-01-29', '2018-02-02', 'Amazon.it', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('PSU', 'Petru Dascal', 'Corsair', 'RM850x(white)', 1376, 1, '2018-01-29', '2018-02-08', 'Amazon.de', null, null);																	  
 											  
 /* MB */
 
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MB', 'Vasile/Rodica', 'ASUS', 'B250 Mining Expert', 3492.45, 1, '2018-01-09', '2018-01-16', 'Amazon.fr', null, null);	
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MB', 'Cristian Scobiola', 'ASUS', 'B250 Mining Expert', 3175.78, 1, '2018-01-18', '2018-01-25', 'Amazon.de', null, null);																	  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MB', 'William', 'ASUS', 'B250 Mining Expert', 2472, 2, '2018-01-28', '2018-02-05', 'Amazon.de', null, 'one defect sent, second defect has to be resolved aswell');																	  
 												  
 /* CPU */														  
 											  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('CPU', 'Andrei Mungiu', 'Intel', 'Skylake Pentium G4400', 388, 1, '2018-01-10', '2018-01-17', 'Amazon.fr', null, null);	
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('CPU', 'William', 'Intel', 'Skylake Pentium Dual-Core G4400', 406, 2, '2018-01-28', '2018-02-02', 'Amazon.de', null, '2152 at the end one of them');																	  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('CPU', 'Petru Dascal', 'Intel', 'Skylake Pentium Dual-Core G4400', 402, 1, '2018-01-29', '2018-02-08', 'Amazon.de', null, null);																	  
 			
 /* RAM */
 												  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('RAM', 'Andrei Mungiu', 'Crucial', 'Ballistix 4GB DDR4 2400 MT/s Gray', 434, 1, '2018-01-10', '2018-01-17', 'Amazon.fr', null, null);	
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('RAM', 'William', 'Crucial', 'Ballistix 4GB DDR4 2400 MT/s White', 426, 2, '2018-01-28', '2018-02-02', 'Amazon.de', null, null);																	  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('RAM', 'Petru Dascal', 'Crucial', 'Ballistix 4GB DDR4 2400 MT/s White', 364, 1, '2018-01-29', '2018-02-08', 'Amazon.de', null, null);																	  
 														  
 /* SSD */
 
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('SSD', 'Cristian Scobiola', 'Intenso', 'SSD 128 GB', 383, 1, '2018-01-18', '2018-01-25', 'Amazon.de', null, null);	
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('SSD', 'William', 'Intenso', 'SSD 128 GB', 382, 2, '2018-01-28', '2018-02-02', 'Amazon.de', null, null);																	  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('SSD', 'Andrei Mungiu', 'Intenso', 'SSD 128 GB', 380, 1, '2018-02-14', '2018-02-21', 'Amazon.de', null, null);																	  
 													  
 /* MISC */
 
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Andrei Mungiu', 'Lattcure', 'Riser 16x1x 60cm usb 3.0 cable 6-pin / 4-pin / sata interface (X6 Pack)', 65.76, 6, '2018-01-10', '2018-01-17', 'Amazon.fr', null, null);	
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Andrei Mungiu', 'Rankie', 'DisplayPort to VGA, 1080p Male & Female', 52.05, 1, '2018-01-10', '2018-01-17', 'Amazon.fr', null, null);																	  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Cristian Scobiola', 'Sabrent', 'USB to SSD Adapter', 99.53, 1, '2018-01-18', '2018-01-25', 'Amazon.de', null, null);																	  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Cristian Scobiola', 'Tracklife', 'Socket/Neutral/Earth/Polarity Tester', 71.31, 1, '2018-01-18', '2018-01-25', 'Amazon.de', null, null);													  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Cristian Scobiola', 'Tracklife', 'Energy Consumption/Amper/Costs meter 3680W', 158.37, 1, '2018-01-18', '2018-01-25', 'Amazon.de', null, null);												  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Cristian Scobiola', 'Votones', 'Riser 16x1x 60cm  usb 3.0 PCIe 6 Pin + 6pin to SATA Power Cable', 59, 12, '2018-01-18', '2018-01-25', 'Amazon.de', null, null);												  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Cristian Scobiola', 'Anew', 'Mini WLAN Stick Wireless USB, 2.4G 150mbps + 5G 433mbps', 138.48, 1, '2018-01-18', '2018-01-25', 'Amazon.de', null, null);												  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'William', 'Hama', 'Extension Cable (6 Way with Switch and Child Lock) black', 73, 2, '2018-01-28', '2018-02-02', 'Amazon.de', null, null);												  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'William', 'Logitech', 'B100 Optical Mouse - Black', 56, 1, '2018-01-28', '2018-02-02', 'Amazon.de', null, null);												  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'William', 'Cherry', 'KC 1000 PC / Mac, Keyboard', 101, 1, '2018-01-28', '2018-02-02', 'Amazon.de', null, null);												  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'William', 'Elegiant', 'Riser USB 3.0 PCI-E Express 1X To 16X', 92, 27, '2018-01-28', '2018-02-02', 'Amazon.de', null, null);												  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Andrei Mungiu', null, 'Motherboard Power Cable ON/OFF Switch', 2.64, 10, '2018-01-29', '2018-02-28', 'Aliexpress.com', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Andrei Mungiu', null, '6 Pin Male To Female PCI express GPU Power Supply Extension Cable', 7.02, 40, '2018-01-29', '2018-02-21', 'Aliexpress.com', null, null);												  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Andrei Mungiu', null, '4 Pin Molex Male to 4Pin Molex IDE Female', 7.32, 40, '2018-01-29', '2018-02-26', 'Aliexpress.com', null, null);												  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Vasile/Rodica', null, 'GPU Frame', 750, 5, '2018-01-29', '2018-02-21', 'Moldova', null, null);													  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Arthur Cohrt Hillgaard', null, '600mm Window Fan', 1514.34, 1, '2018-02-08', '2018-02-18', 'Amazon.de', null, null);												  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Andrei Mungiu', 'Sabrent', 'USB TypeC to SSD Adapter', 130.9, 1, '2018-02-14', '2018-02-21', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Andrei Mungiu', 'Rankie', 'HDMI to VGA Male to Female + Micro USB Charging cable White', 61.6, 1, '2018-02-14', '2018-02-21', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Vasile/Rodica', 'Kingston', 'USB 16GB', 83, 1, '2018-02-20', '2018-02-20', 'Moldova', null, null);		
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Nicolae Gheorghita', 'Gigabyte', 'Switch', 321.83, 1, '2018-02-25', '2018-03-03', 'Amazon.de', null, null);
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Valentin Graur', 'Lattcure', 'Riser 16x1x 60cm USB3.0 Ver 009S', 64, 6, '2018-03-29', '2018-04-09', 'Amazon.de', null, null);														  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Emil Juel Andersen', 'Lattcure', 'Riser 16x1x 60cm USB3.0', 61.25, 6, '2018-05-09', '2018-05-13', 'Amazon.de', null, null);														  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Emil Juel Andersen', 'Lattcure', 'Riser 16x1x 60cm USB3.0', 65.75, 6, '2018-05-09', '2018-05-13', 'Amazon.de', null, null);														  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Andrei Mungiu', null, '6 Pin Male To Male GPU cables', 18.083, 6, '2018-06-19', '2018-07-19', 'Aliexpress.com', null, null);																		  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Andrei Mungiu', null, '8 Pin Male to Dual 8Pin(6+2) Male 60cm GPU Power Cable 18AWG', 21.075, 20, '2018-07-08', '2018-07-19', 'AAliexpress.com', null, null);												  
-INSERT INTO Item(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
+INSERT INTO Items(category, owner, brand, model, price, qty, orderdate, arrivaldate, seller, notes, sn_notes)
 	VALUES ('MISC', 'Andrei Mungiu', null, '8 pin Female to dual PCI-E PCI Express 8pin ( 6+2 pin ) Male 26cm GPU Cable', 13.85, 10, '2018-07-08', '2018-07-19', 'Aliexpress.com', null, null);		
 
 
@@ -312,7 +341,7 @@ INSERT INTO Costs(category, owner, Description, OrderValue, Reimbursed, PaymentD
 INSERT INTO Costs(category, owner, Description, OrderValue, Reimbursed, PaymentDate, Status, Notes)
 		VALUES ('PROJECT', 'Vasile/Rodica', 'Electricity - Sound Insulation', 37, 37, '2018-03-22', 'Arrived', null);												   
 INSERT INTO Costs(category, owner, Description, OrderValue, Reimbursed, PaymentDate, Status, Notes)
-		VALUES ('PROJECT', 'Vasile/Rodica', 'Electricity - Items', 1350, 1350, '2018-05-01', 'Arrived', null);
+		VALUES ('PROJECT', 'Vasile/Rodica', 'Electricity - Itemss', 1350, 1350, '2018-05-01', 'Arrived', null);
 INSERT INTO Costs(category, owner, Description, OrderValue, Reimbursed, PaymentDate, Status, Notes)
 		VALUES ('PROJECT', 'Vasile/Rodica', 'Temperature  - Heat insulation', 40, 40, '2018-08-01', 'Arrived', null);
 INSERT INTO Costs(category, owner, Description, OrderValue, Reimbursed, PaymentDate, Status, Notes)
