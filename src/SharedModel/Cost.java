@@ -7,7 +7,7 @@ public class Cost implements Serializable
 {
 	private int serial_id;
 	private String category;
-	private Person owner;
+	private Owner owner;
 	private String description;
 	private double ordervalue;
 	private double reimbursed;
@@ -15,7 +15,7 @@ public class Cost implements Serializable
 	private String status;
 	private String notes;
 
-	public Cost(int serial_id, String category, Person owner, String description, double ordervalue,
+	public Cost(int serial_id, String category, Owner owner, String description, double ordervalue,
 				double reimbursed, Date paymentdate, String status, String notes)
 	{
 		this.serial_id = serial_id;
@@ -49,12 +49,12 @@ public class Cost implements Serializable
 		this.category = category;
 	}
 
-	public Person getOwner()
+	public Owner getOwner()
 	{
 		return owner;
 	}
 
-	public void setOwner(Person owner)
+	public void setOwner(Owner owner)
 	{
 		this.owner = owner;
 	}

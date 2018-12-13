@@ -2,7 +2,7 @@ package Server.Domain.Mediator;
 
 import SharedModel.Cost;
 import SharedModel.CostTupleList;
-import SharedModel.Person;
+import SharedModel.Owner;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -56,8 +56,8 @@ public class CostModelManager implements IModelManager<Cost>
 					new Cost(
 							rsCostTable.getInt("serial_id"),
 							rsCostTable.getString("category"),
-							new Person(
-									rsCostTable.getString("name"),
+							new Owner(
+									rsCostTable.getString("owner"),
 									rsCostTable.getString("coinbaseEmail"),
 									rsCostTable.getString("btcWalletAddres")),
 							rsCostTable.getString("description"),
@@ -78,35 +78,44 @@ public class CostModelManager implements IModelManager<Cost>
 	@Override
 	public void assembleSQLInsertCommand(Cost object) throws SQLException
 	{
-		// TODO ensure proper StringBuilder implementation
 		StringBuilder sb = new StringBuilder();
 
-		// TODO correct SQL statement component names + add missing components (check excel)
-		sb.append("insert into cost_table ( payee, amount, incuredDate ) ");
+		// SQL INSERT COMMAND COMPONENTS: insert into "table_name" (col1, col2) values (val1, val2)
+		sb.append("insert into cost ");
+		sb.append("(serial_id, category, owner, description,  ordervalue, reimbursed, paymentdate, status, notes) ");
 
-		sb.append("values (" +
-				object.getPayee() + "," +
-				object.getAmount() + "," +
-				object.getIncuredDate() + ")");
+		sb.append("values (");
+		sb.append(object.getSerial_id() + ",");
+		sb.append(object.getCategory() + ",");
+		sb.append(object.getOwner() + ",");
+		sb.append(object.getDescription() + ",");
+		sb.append(object.getOrdervalue() + ",");
+		sb.append(object.getReimbursed() + ",");
+		sb.append(object.getPaymentdate().toString() + ",");
+		sb.append(object.getStatus() + ",");
+		sb.append(object.getNotes() + ")");
 
-		String sqlInsertCommand = sb.toString();
-		iPersistanceCost.pushInsertCommand(sqlInsertCommand);
+		iPersistanceCost.pushInsertCommand(sb.toString());
 	}
 
 	@Override
 	public void assembleSQLUpdateCommand(Cost object) throws SQLException
 	{
-		// TODO ensure proper StringBuilder implementation
 		StringBuilder sb = new StringBuilder();
 
-		// TODO correct SQL statement component names + add missing components (check excel)
-		sb.append("update cost_table set ");
+		// sql UPDATE command components: update "table_name" set "col1 = val1, col2 = val2" where "condition";
+		sb.append("update cost set ");
 
-		sb.append("payee = " + object.getPayee() + "," +
-				"amount = " + object.getAmount() + "," +
-				"incuredDate = " + object.getIncuredDate() + ")");
+		sb.append("serial_id = " + object.getSerial_id() + ",");
+		sb.append("category = " + object.getCategory() + ",");
+		sb.append("owner = " + object.getOwner().getName() + ",");
+		sb.append("description = " + object.getDescription() + ",");
+		sb.append("ordervalue= " + object.getOrdervalue() + ",");
+		sb.append("reimbursed = " + object.getReimbursed() + ",");
+		sb.append("paymentdate = " + object.getPaymentdate().toString() + ",");
+		sb.append("status = " + object.getStatus() + ",");
+		sb.append("notes = " + object.getNotes() + ",");
 
-		String sqlUpdateCommand = sb.toString();
-		iPersistanceCost.pushUpdateCommand(sqlUpdateCommand);
+		iPersistanceCost.pushUpdateCommand(sb.toString());
 	}
 }
