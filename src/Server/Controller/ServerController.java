@@ -19,7 +19,7 @@ public class ServerController implements IServerController
 	private CostModelManager costModelManager;
 	private ItemModelManager itemModelManager;
 
-	public ServerController() throws RemoteException, MalformedURLException
+	public ServerController() throws RemoteException, MalformedURLException, SQLException
 	{
 		costModelManager = CostModelManager.getInstance();
 		itemModelManager = ItemModelManager.getInstance();

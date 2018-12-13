@@ -5,12 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ItemQuerry extends DbCommunication implements IPersistance
+public class ItemQuery extends DbCommunication implements IPersistance
 {
 	DbCommunication dbCommunication;
 	Connection conn;
 
-	public ItemQuerry() throws SQLException
+	public ItemQuery() throws SQLException
 	{
 		super();
 		dbCommunication = DbCommunication.getInstance();
@@ -20,20 +20,14 @@ public class ItemQuerry extends DbCommunication implements IPersistance
 	@Override
 	public ResultSet pullResultSet() throws SQLException
 	{
-		// TODO: Double check statement
-		PreparedStatement stmtPullItemRelation = conn.prepareCall("select * from itemTable");
-
-		// table of data representing a database "result set" obtained by quarrying the database
+		PreparedStatement stmtPullItemRelation = conn.prepareCall("select * from item");
 		ResultSet rsItemTable = stmtPullItemRelation.executeQuery();
-
-		// Closing the doors
-		rsItemTable.close();
+		// freeing up resources used by the PreparedStatement since it has been executed and its result stored
 		stmtPullItemRelation.close();
 
 		// TODO replace with a logger
-		System.out.println("Cost Query execution finalized.");
+		System.out.println("Item query execution finalized.");
 		return rsItemTable;
-		//TODO remember to nullify rsItemTable after its sent to the client
 	}
 
 	@Override
@@ -45,7 +39,7 @@ public class ItemQuerry extends DbCommunication implements IPersistance
 		stmtTupleInsert.close();
 
 		// TODO replace with a logger
-		System.out.println("Cost tuple insertion executed");
+		System.out.println("Item tuple insertion executed");
 	}
 
 	@Override
@@ -57,6 +51,6 @@ public class ItemQuerry extends DbCommunication implements IPersistance
 		stmtTupleUpdate.close();
 
 		// TODO replace with a logger
-		System.out.println("Cost tuple update execute");
+		System.out.println("Item tuple update execute");
 	}
 }

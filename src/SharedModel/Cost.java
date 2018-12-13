@@ -5,38 +5,38 @@ import java.sql.Date;
 
 public class Cost implements Serializable
 {
-	private int serialid;
+	private int serial_id;
 	private String category;
 	private Person owner;
 	private String description;
 	private double ordervalue;
-	private double reinbursed;
+	private double reimbursed;
 	private Date paymentdate;
 	private String status;
 	private String notes;
 
-	public Cost(int serialid, String category, Person owner, String description, double ordervalue,
-				double reinbursed, Date paymentdate, String status, String notes)
+	public Cost(int serial_id, String category, Person owner, String description, double ordervalue,
+				double reimbursed, Date paymentdate, String status, String notes)
 	{
-		this.serialid = serialid;
+		this.serial_id = serial_id;
 		this.category = category;
 		this.owner = owner;
 		this.description = description;
 		this.ordervalue = ordervalue;
-		this.reinbursed = reinbursed;
+		this.reimbursed = reimbursed;
 		this.paymentdate = paymentdate;
 		this.status = status;
 		this.notes = notes;
 	}
 
-	public int getSerialid()
+	public int getSerial_id()
 	{
-		return serialid;
+		return serial_id;
 	}
 
-	public void setSerialid(int serialid)
+	public void setSerial_id(int serial_id)
 	{
-		this.serialid = serialid;
+		this.serial_id = serial_id;
 	}
 
 	public String getCategory()
@@ -79,14 +79,14 @@ public class Cost implements Serializable
 		this.ordervalue = ordervalue;
 	}
 
-	public double getReinbursed()
+	public double getReimbursed()
 	{
-		return reinbursed;
+		return reimbursed;
 	}
 
-	public void setReinbursed(double reinbursed)
+	public void setReimbursed(double reimbursed)
 	{
-		this.reinbursed = reinbursed;
+		this.reimbursed = reimbursed;
 	}
 
 	public Date getPaymentdate()
