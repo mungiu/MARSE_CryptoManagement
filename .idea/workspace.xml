@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="WIP - Java database connection">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/SCRUM/~$RINTS-Sep.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/Mediator/CostModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/Mediator/CostModelManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/Mediator/DbCommunication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/Mediator/DbCommunication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/Mediator/ItemModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/Mediator/ItemModelManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/IPersistance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/IPersistance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuery.java" afterDir="false" />
-    </list>
+    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="WIP - Java database connection" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="49" selection-end-column="71" />
+            <state relative-caret-position="342">
+              <caret line="64" column="59" lean-forward="true" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
               <folding>
                 <element signature="docComment;class#CostModelManager#0" />
               </folding>
@@ -261,7 +249,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="190" />
     <option name="y" value="-18" />
     <option name="width" value="1620" />
@@ -571,7 +559,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
@@ -903,8 +892,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="49" selection-end-column="71" />
+        <state relative-caret-position="342">
+          <caret line="64" column="59" lean-forward="true" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
           <folding>
             <element signature="docComment;class#CostModelManager#0" />
           </folding>
