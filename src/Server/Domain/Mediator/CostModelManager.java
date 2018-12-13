@@ -41,11 +41,14 @@ public class CostModelManager implements IModelManager<Cost>
 	@Override
 	public ArrayList<Cost> assembleArrayList() throws SQLException
 	{
+		// pulling from Database
 		ResultSet rsCostTable = iPersistanceCost.pullResultSet();
 
+		// pulling from Model
 		CostTupleList temp_costTupleList = CostTupleList.getInstance();
 		ArrayList<Cost> temp_arr = temp_costTupleList.getTupleList();
 
+		// Assembling Data into Model
 		while (rsCostTable.next())
 		{
 			// TODO: Inside the DB edit "serialid" into "serial_id"
