@@ -39,7 +39,7 @@ create table Owner (
 	Wallet text
 );												   												   
 create table Costs(
-	SerialId serial primary key,
+	Serial_Id serial primary key,
 	Category d_CostsCategory,
 	Owner d_name ,
 	Description D_description,
@@ -88,7 +88,7 @@ create view ItemOrderValue as
 	
 /* creating a view for ToBeReimbursed */
 create view ToBeReimbursed as
-		select 	costs.SerialId, costs.Category, costs.Owner, costs.Description,
+		select 	costs.Serial_Id, costs.Category, costs.Owner, costs.Description,
 				costs.OrderValue - costs.Reimbursed as toBeReimbursted, 
 				costs.paymentdate, costs.status, costs.notes
 		from Costs;
