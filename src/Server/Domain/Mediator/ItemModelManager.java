@@ -20,7 +20,7 @@ public class ItemModelManager implements IModelManager<Item>
 	private static ItemModelManager instance;
 	private static Lock lock = new ReentrantLock();
 
-	private IPersistance iPersistanceItem = new ItemQuerry();
+	private IPersistance iPersistanceItem = new ItemQuery();
 
 	private ItemModelManager() throws SQLException
 	{
@@ -48,7 +48,6 @@ public class ItemModelManager implements IModelManager<Item>
 
 		while (rsItemTable.next())
 		{
-			// TODO: Double check statement
 			temp_arr.add(
 					new Item(
 							rsItemTable.getString("serial_id"),
@@ -69,6 +68,8 @@ public class ItemModelManager implements IModelManager<Item>
 					)
 			);
 		}
+		// Freeing up resources
+		rsItemTable.close();
 
 		return temp_arr;
 	}
@@ -76,23 +77,25 @@ public class ItemModelManager implements IModelManager<Item>
 	@Override
 	public void assembleSQLInsertCommand(Item object) throws SQLException
 	{
-		// TODO ensure proper StringBuilder implementation
 		StringBuilder sb = new StringBuilder();
 
-		// TODO correct SQL statement component names + add missing components (check excel)
 		// SQL INSERT COMMAND COMPONENTS: insert into "table_name" (col1, col2) values (val1, val2)
-		sb.append("insert into item_table ");
-		sb.append("( owner, brand, model, type, price, purchaseDate, arrivalDate, seller) ");
+		sb.append("insert into item ");
+		sb.append("serial_id, category, owner, brand, model, price, qty, orderDate, arrivalDate, seller, notes, sn_notes) ");
 
 		sb.append("values (");
+		sb.append(object.getSerial_id() + ",");
+		sb.append(object.getCategory() + ",");
 		sb.append(object.getOwner() + ",");
 		sb.append(object.getBrand() + ",");
 		sb.append(object.getModel() + ",");
-		sb.append(object.getType() + ",");
 		sb.append(object.getPrice() + ",");
-		sb.append(object.getPurchaseDate() + ",");
+		sb.append(object.getQty() + ",");
+		sb.append(object.getOrderDate() + ",");
 		sb.append(object.getArrivalDate() + ",");
-		sb.append(object.getSeller() + ")");
+		sb.append(object.getSeller() + ",");
+		sb.append(object.getNotes() + ",");
+		sb.append(object.getSn_notes() + ")");
 
 		String sqlInsertCommand = sb.toString();
 		iPersistanceItem.pushInsertCommand(sqlInsertCommand);
@@ -103,18 +106,21 @@ public class ItemModelManager implements IModelManager<Item>
 	{
 		StringBuilder sb = new StringBuilder();
 
-		// TODO correct SQL statement component names + add missing components (check excel)
 		// sql UPDATE command components: update "table_name" set "col1 = val1, col2 = val2" where "condition";
-		sb.append("update cost_table set ");
+		sb.append("update item set ");
 
-		sb.append("owner = " + object.getOwner() + "," +
-				"brand = " + object.getBrand() + "," +
-				"model = " + object.getModel() + "," +
-				"type = " + object.getType() + "," +
-				"price = " + object.getPrice() + "," +
-				"purchaseDate = " + object.getPurchaseDate() + "," +
-				"arrivalDate = " + object.getArrivalDate() + "," +
-				"seller = " + object.getSeller() + ")");
+		sb.append("serial_id = " + object.getSerial_id() + ",");
+		sb.append("category = " + object.getCategory() + ",");
+		sb.append("owner = " + object.getOwner() + ",");
+		sb.append("brand = " + object.getBrand() + ",");
+		sb.append("model = " + object.getModel() + ",");
+		sb.append("price = " + object.getPrice() + ",");
+		sb.append("qty = " + object.getQty() + ",");
+		sb.append("orderdate = " + object.getOrderDate() + ",");
+		sb.append("arrivaldate = " + object.getArrivalDate() + ",");
+		sb.append("seller = " + object.getSeller() + ",");
+		sb.append("notes = " + object.getNotes() + ",");
+		sb.append("sn_notes = " + object.getSn_notes() + ")");
 
 		String sqlUpdateCommand = sb.toString();
 		iPersistanceItem.pushUpdateCommand(sqlUpdateCommand);

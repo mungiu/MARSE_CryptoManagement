@@ -5,12 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CostQuerry extends DbCommunication implements IPersistance
+public class CostQuery extends DbCommunication implements IPersistance
 {
 	DbCommunication dbCommunication;
 	Connection conn;
 
-	public CostQuerry() throws SQLException
+	public CostQuery() throws SQLException
 	{
 		super();
 		dbCommunication = DbCommunication.getInstance();
@@ -20,20 +20,14 @@ public class CostQuerry extends DbCommunication implements IPersistance
 	@Override
 	public ResultSet pullResultSet() throws SQLException
 	{
-		// TODO: Double check statement
-		PreparedStatement stmtPullCostRelation = conn.prepareCall("select * from costTable");
-
-		// table of data representing a database "result set" obtained by quarrying the database
+		PreparedStatement stmtPullCostRelation = conn.prepareCall("select * from cost");
 		ResultSet rsCostTable = stmtPullCostRelation.executeQuery();
-
-		// Closing the doors
-		rsCostTable.close();
+		// freeing up resources used by the PreparedStatement since it has been executed and its result stored
 		stmtPullCostRelation.close();
 
 		// TODO replace with a logger
-		System.out.println("Cost Query execution finalized.");
+		System.out.println("Cost query execution finalized.");
 		return rsCostTable;
-		//TODO remember to nullify rsItemTable after its sent to the client
 	}
 
 	@Override
