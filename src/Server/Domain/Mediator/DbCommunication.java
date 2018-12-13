@@ -14,26 +14,22 @@ public class DbCommunication
 {
 	private Connection conn;
 
-	private static DbCommunication instance;
-	private static final Lock lock = new ReentrantLock();
-
-	/* connection details */
-	/* connects via TNS */
-
-	final static String connectString = "jdbc:postgresql:database";
-	final static String userName = "mungiu";
+	final static String connectString = "jdbc:postgresql://localhost:5432/postgres?currentSchema=MARSE";
+	final static String userName = "postgres";
 	final static String password = "1111";
+	private int count = 0;
 
-	public DbCommunication() throws SQLException
+	public DbCommunication()
 	{
 		try
 		{
 			// NOTE: Oracle connection is implemented differently, check Oracle documentation
 			conn = DriverManager.getConnection(connectString, userName, password);
-			conn.setAutoCommit(false);
+			// TODO AutoCommi off?
+//			conn.setAutoCommit(false);
 
 			// TODO have a logger for all print outs
-			System.out.println("connection established, autocommit off");
+			System.out.println("Connection established, autocommit ON");
 		}
 		catch (SQLException e)
 		{
@@ -44,35 +40,9 @@ public class DbCommunication
 			e.printStackTrace();
 		}
 
-		try
-		{
-			conn.close();
-			// TODO have a logger for all print outs
-			System.out.println("connection closed");
-			conn = null;
-		}
-		catch (SQLException e)
-		{
-			// TODO have a logger for all print outs
-			System.out.println("error closing connection");
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-			System.exit(0);
-		}
+		count++;
+		System.out.println(count);
 	}
-
-	public static DbCommunication getInstance()
-	{
-		if (instance == null)
-			synchronized (lock)
-			{
-				if (instance == null)
-					return instance;
-			}
-
-		return instance;
-	}
-
 
 	public Connection getConn()
 	{

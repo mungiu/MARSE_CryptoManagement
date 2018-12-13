@@ -2,7 +2,7 @@ package Server.Domain.Mediator;
 
 import SharedModel.Item;
 import SharedModel.ItemTupleList;
-import SharedModel.Person;
+import SharedModel.Owner;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -52,8 +52,8 @@ public class ItemModelManager implements IModelManager<Item>
 					new Item(
 							rsItemTable.getString("serial_id"),
 							rsItemTable.getString("category"),
-							new Person(
-									rsItemTable.getString("name"),
+							new Owner(
+									rsItemTable.getString("owner"),
 									rsItemTable.getString("coinbaseEmail"),
 									rsItemTable.getString("btcWalletAddress")),
 							rsItemTable.getString("brand"),
@@ -81,24 +81,23 @@ public class ItemModelManager implements IModelManager<Item>
 
 		// SQL INSERT COMMAND COMPONENTS: insert into "table_name" (col1, col2) values (val1, val2)
 		sb.append("insert into item ");
-		sb.append("serial_id, category, owner, brand, model, price, qty, orderDate, arrivalDate, seller, notes, sn_notes) ");
+		sb.append("(serial_id, category, owner, brand, model, price, qty, orderDate, arrivalDate, seller, notes, sn_notes) ");
 
 		sb.append("values (");
 		sb.append(object.getSerial_id() + ",");
 		sb.append(object.getCategory() + ",");
-		sb.append(object.getOwner() + ",");
+		sb.append(object.getOwner().getName() + ",");
 		sb.append(object.getBrand() + ",");
 		sb.append(object.getModel() + ",");
 		sb.append(object.getPrice() + ",");
 		sb.append(object.getQty() + ",");
-		sb.append(object.getOrderDate() + ",");
-		sb.append(object.getArrivalDate() + ",");
+		sb.append(object.getOrderDate().toString() + ",");
+		sb.append(object.getArrivalDate().toString() + ",");
 		sb.append(object.getSeller() + ",");
 		sb.append(object.getNotes() + ",");
 		sb.append(object.getSn_notes() + ")");
 
-		String sqlInsertCommand = sb.toString();
-		iPersistanceItem.pushInsertCommand(sqlInsertCommand);
+		iPersistanceItem.pushInsertCommand(sb.toString());
 	}
 
 	@Override
@@ -111,18 +110,17 @@ public class ItemModelManager implements IModelManager<Item>
 
 		sb.append("serial_id = " + object.getSerial_id() + ",");
 		sb.append("category = " + object.getCategory() + ",");
-		sb.append("owner = " + object.getOwner() + ",");
+		sb.append("owner = " + object.getOwner().getName() + ",");
 		sb.append("brand = " + object.getBrand() + ",");
 		sb.append("model = " + object.getModel() + ",");
 		sb.append("price = " + object.getPrice() + ",");
 		sb.append("qty = " + object.getQty() + ",");
-		sb.append("orderdate = " + object.getOrderDate() + ",");
-		sb.append("arrivaldate = " + object.getArrivalDate() + ",");
+		sb.append("orderdate = " + object.getOrderDate().toString() + ",");
+		sb.append("arrivaldate = " + object.getArrivalDate().toString() + ",");
 		sb.append("seller = " + object.getSeller() + ",");
 		sb.append("notes = " + object.getNotes() + ",");
 		sb.append("sn_notes = " + object.getSn_notes() + ")");
 
-		String sqlUpdateCommand = sb.toString();
-		iPersistanceItem.pushUpdateCommand(sqlUpdateCommand);
+		iPersistanceItem.pushUpdateCommand(sb.toString());
 	}
 }
