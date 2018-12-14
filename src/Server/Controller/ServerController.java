@@ -2,10 +2,12 @@ package Server.Controller;
 
 import Server.Domain.Mediator.CostModelManager;
 import Server.Domain.Mediator.ItemModelManager;
+import Server.Domain.Mediator.OwnerModelManager;
 import SharedInterfaces.IServerController;
 import SharedInterfaces.Observer;
 import SharedModel.Cost;
 import SharedModel.Item;
+import SharedModel.Owner;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -18,11 +20,13 @@ public class ServerController implements IServerController
 {
 	private CostModelManager costModelManager;
 	private ItemModelManager itemModelManager;
+	private OwnerModelManager ownerModelManager;
 
 	public ServerController() throws RemoteException, MalformedURLException, SQLException
 	{
 		costModelManager = CostModelManager.getInstance();
 		itemModelManager = ItemModelManager.getInstance();
+		ownerModelManager = OwnerModelManager.getInstance();
 
 		UnicastRemoteObject.exportObject(this, 0);
 
@@ -40,6 +44,12 @@ public class ServerController implements IServerController
 	public ArrayList<Cost> executeCostRelationRequest() throws SQLException
 	{
 		return costModelManager.assembleArrayList();
+	}
+
+	@Override
+	public ArrayList<Owner> executeOwnerRelationRequest() throws SQLException, RemoteException
+	{
+		return ownerModelManager.assembleArrayList();
 	}
 
 	@Override

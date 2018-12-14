@@ -2,18 +2,15 @@ package Server.Domain.Mediator;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ItemQuery extends DbCommunication implements IPersistance
 {
-	//	DbCommunication dbCommunication;
 	Connection conn;
 
 	public ItemQuery() throws SQLException
 	{
 		super();
-//		dbCommunication = DbCommunication.getInstance();
 		conn = super.getConn();
 	}
 

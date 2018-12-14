@@ -2,6 +2,9 @@ package Client.View;
 
 import Client.Controller.ClientController;
 import SharedInterfaces.IClientController;
+import SharedModel.Cost;
+import SharedModel.Item;
+import SharedModel.Owner;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -23,10 +26,23 @@ public class StartClient
 
 		while (true)
 		{
-			if (keyboard.nextLine().equals("costs"))
-				iClientController.requestCostRelation();
-			else if (keyboard.nextLine().equals("items"))
-				iClientController.requestItemRelation();
+			String temp = keyboard.nextLine();
+
+			switch (temp)
+			{
+				case "costs":
+					for (Cost c : iClientController.requestCostRelation())
+						System.out.println(c.toString());
+					break;
+				case "items":
+					for (Item i : iClientController.requestItemRelation())
+						System.out.println(i.toString());
+					break;
+				case "owners":
+					for (Owner o : iClientController.requestOwnerRelation())
+						System.out.println(o.toString());
+					break;
+			}
 		}
 	}
 }

@@ -7,7 +7,7 @@ public class Cost implements Serializable
 {
 	private int serial_id;
 	private String category;
-	private Owner owner;
+	private String owner;
 	private String description;
 	private double ordervalue;
 	private double reimbursed;
@@ -15,7 +15,7 @@ public class Cost implements Serializable
 	private String status;
 	private String notes;
 
-	public Cost(int serial_id, String category, Owner owner, String description, double ordervalue,
+	public Cost(int serial_id, String category, String owner, String description, double ordervalue,
 				double reimbursed, Date paymentdate, String status, String notes)
 	{
 		this.serial_id = serial_id;
@@ -49,12 +49,12 @@ public class Cost implements Serializable
 		this.category = category;
 	}
 
-	public Owner getOwner()
+	public String getOwner()
 	{
 		return owner;
 	}
 
-	public void setOwner(Owner owner)
+	public void setOwner(String owner)
 	{
 		this.owner = owner;
 	}
@@ -117,5 +117,11 @@ public class Cost implements Serializable
 	public void setNotes(String notes)
 	{
 		this.notes = notes;
+	}
+
+	@Override
+	public String toString()
+	{
+		return serial_id + "\t\t" + category + "\t\t" + owner + "\t\t" + description + "\t\t" + ordervalue + "\t\t" + reimbursed + "\t\t" + paymentdate + "\t\t" + status + "\t\t" + notes;
 	}
 }

@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="WIP - Java database connection" />
+    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="WIP - Java database connection">
+      <change afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/OwnerModelManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/OwnerQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SharedModel/OwnerTupleList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitcoin_ASTAH_v1.01.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Bitcoin_ASTAH_v1.01.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RonSQLNew.txt" beforeDir="false" afterPath="$PROJECT_DIR$/RonSQLNew.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Client/Controller/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Client/Controller/ClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Client/View/StartClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Client/View/StartClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Controller/ServerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Controller/ServerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/Mediator/CostModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/Mediator/CostModelManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/Mediator/ItemModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/Mediator/ItemModelManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/SharedInterfaces/IClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/SharedInterfaces/IClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/SharedInterfaces/IServerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/SharedInterfaces/IServerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/SharedModel/Cost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/SharedModel/Cost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/SharedModel/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/SharedModel/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Controller/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/View/StartClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/View/StartClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Controller/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Controller/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedInterfaces/IClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedInterfaces/IClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedInterfaces/IServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedInterfaces/IServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedModel/Cost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedModel/Cost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedModel/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedModel/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedModel/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedModel/Owner.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +46,7 @@
     <session id="-1927939369">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="41" />
+          <entry key="project.closed" value="43" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="8" />
           <entry key="project.open.time.11" value="1" />
@@ -31,6 +59,7 @@
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="2" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.28" value="1" />
@@ -40,31 +69,31 @@
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="44" />
+          <entry key="project.opened" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="5" />
-          <entry key="java" value="300" />
+          <entry key="java" value="334" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="5" />
-          <entry key="JAVA" value="300" />
+          <entry key="JAVA" value="334" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="192" />
-          <entry key="java" value="18794" />
+          <entry key="java" value="19819" />
           <entry key="txt" value="170" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="18794" />
+          <entry key="JAVA" value="19819" />
           <entry key="PLAIN_TEXT" value="362" />
         </counts>
       </usages-collector>
@@ -74,97 +103,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuery.java">
+        <entry file="file://$PROJECT_DIR$/src/SharedModel/Owner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state relative-caret-position="32">
+              <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="64" column="59" lean-forward="true" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
-              <folding>
-                <element signature="docComment;class#CostModelManager#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/postgresql-9.4-1206-jdbc4.jar!/org/postgresql/jdbc2/AbstractJdbc2Statement.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7060">
-              <caret line="556" column="19" lean-forward="true" selection-start-line="556" selection-start-column="19" selection-end-line="556" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="73" column="37" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
-              <folding>
-                <element signature="docComment;class#ItemModelManager#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuery.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="22" column="89" selection-start-line="22" selection-start-column="89" selection-end-line="22" selection-end-column="89" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Client/View/StartClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Client/Controller/ClientController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Server/Controller/StartServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Server/Controller/ServerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="481">
+              <caret line="42" column="57" lean-forward="true" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -189,9 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/DbItemQuerry.java" />
-        <option value="$PROJECT_DIR$/src/Server/Controller/IServerController.java" />
-        <option value="$PROJECT_DIR$/src/Client/Controller/IServerController.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/RelationModel.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemPersistance.java" />
         <option value="$PROJECT_DIR$/src/SharedInterfaces/Observable.java" />
@@ -219,27 +167,30 @@
         <option value="$PROJECT_DIR$/src/Class.java" />
         <option value="$PROJECT_DIR$/src/FileSearch.java" />
         <option value="$PROJECT_DIR$/src/SharedInterfaces/Observer.java" />
-        <option value="$PROJECT_DIR$/src/SharedInterfaces/IClientController.java" />
-        <option value="$PROJECT_DIR$/src/SharedInterfaces/IServerController.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/Test_DbConnection.java" />
-        <option value="$PROJECT_DIR$/src/SharedModel/Item.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/IModelManager.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuerry.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuerry.java" />
-        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/IPersistance.java" />
-        <option value="$PROJECT_DIR$/src/Server/Controller/ServerController.java" />
         <option value="$PROJECT_DIR$/src/SharedModel/Person.java" />
-        <option value="$PROJECT_DIR$/src/SharedModel/Owner.java" />
         <option value="$PROJECT_DIR$/src/SharedModel/MyDate.java" />
-        <option value="$PROJECT_DIR$/src/SharedModel/Cost.java" />
         <option value="$PROJECT_DIR$/src/Server/Controller/StartServer.java" />
-        <option value="$PROJECT_DIR$/src/Client/Controller/ClientController.java" />
-        <option value="$PROJECT_DIR$/src/Client/View/StartClient.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java" />
+        <option value="$PROJECT_DIR$/src/SharedModel/Cost.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuery.java" />
-        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java" />
-        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuery.java" />
         <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java" />
+        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java" />
+        <option value="$PROJECT_DIR$/src/SharedInterfaces/IClientController.java" />
+        <option value="$PROJECT_DIR$/src/SharedInterfaces/IServerController.java" />
+        <option value="$PROJECT_DIR$/src/Client/Controller/ClientController.java" />
+        <option value="$PROJECT_DIR$/src/Server/Controller/ServerController.java" />
+        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/IPersistance.java" />
+        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuery.java" />
+        <option value="$PROJECT_DIR$/src/SharedModel/OwnerTupleList.java" />
+        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/OwnerModelManager.java" />
+        <option value="$PROJECT_DIR$/src/Server/Domain/Mediator/OwnerQuery.java" />
+        <option value="$PROJECT_DIR$/src/SharedModel/Owner.java" />
+        <option value="$PROJECT_DIR$/src/SharedModel/Item.java" />
+        <option value="$PROJECT_DIR$/src/Client/View/StartClient.java" />
       </list>
     </option>
   </component>
@@ -249,11 +200,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="190" />
-    <option name="y" value="-18" />
-    <option name="width" value="1620" />
-    <option name="height" value="970" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="483" />
+    <option name="y" value="-827" />
+    <option name="width" value="1296" />
+    <option name="height" value="776" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -320,7 +271,15 @@
           <State>
             <id>SecurityLintAndroid</id>
           </State>
+          <State>
+            <id>Serialization issuesJava</id>
+          </State>
         </expanded-state>
+        <selected-state>
+          <State>
+            <id>SerializableHasSerialVersionUIDField</id>
+          </State>
+        </selected-state>
       </profile-state>
     </entry>
   </component>
@@ -332,6 +291,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -348,7 +308,34 @@
               <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
               <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Client" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Client" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
@@ -371,56 +358,39 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="SharedModel" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="postgresql-9.4-1206-jdbc4.jar" type="ab9368bb:PsiFileNode" />
-            </path>
-            <path>
-              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="postgresql-9.4-1206-jdbc4.jar" type="ab9368bb:PsiFileNode" />
-              <item name="postgresql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MARSE_CryptoManagement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MARSE_CryptoManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="postgresql-9.4-1206-jdbc4.jar" type="ab9368bb:PsiFileNode" />
-              <item name="postgresql" type="462c0819:PsiDirectoryNode" />
-              <item name="jdbc4" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="data source&#9;PSI&#9;JAVA://org.postgresql.ds.jdbc23.AbstractJdbc23PoolingDataSource#dataSourceName&#10;version c&#9;ACTION&#9;Start.Use.Vcs&#10;version &#9;ACTION&#9;ActivateVersionControlToolWindow" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544713750092" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544738500146" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/postgresql-9.4-1206-jdbc4.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="SharedModel" />
+      <recent name="Server.Domain.Mediator" />
+      <recent name="Domain.Model" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Server.Domain" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\andre\IdeaProjects\MARSE_CryptoManagement\src\SharedInterfaces" />
-      <recent name="C:\Users\andre\IdeaProjects\MARSE_CryptoManagement\src\Client" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Server.Domain.Model" />
       <recent name="Client.Model" />
       <recent name="Server.Domain.Mediator" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Domain.Model" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\andre\IdeaProjects\MARSE_CryptoManagement\src\SharedInterfaces" />
+      <recent name="C:\Users\andre\IdeaProjects\MARSE_CryptoManagement\src\Client" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -559,7 +529,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
@@ -568,15 +538,15 @@
       <window_info id="Learn" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.15570469" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.16979866" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32765958" />
-      <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" weight="0.35886526" />
-      <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.27943262" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.3815603" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" />
@@ -610,18 +580,24 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java</url>
-          <line>45</line>
+          <url>file://$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java</url>
+          <line>71</line>
           <properties />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>keyboard.nextLine().equals(&quot;items&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/Sem2_SEP/Database Connection Part/QuestionOne.java" />
-    <entry file="file://$USER_HOME$/Desktop/Sem2_SEP/Database Connection Part/QuestionTwo.java" />
-    <entry file="file://$PROJECT_DIR$/src/Client/View/Observer.java" />
     <entry file="file://$PROJECT_DIR$/src/Client/View/IClientController.java" />
     <entry file="file://$PROJECT_DIR$/src/SharedModel/Tuple.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -718,20 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SharedInterfaces/IServerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="105" selection-start-line="10" selection-start-column="105" selection-end-line="10" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SharedInterfaces/IClientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SharedModel/ItemTupleList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -746,63 +708,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/IModelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/IPersistance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="39" column="1" lean-forward="true" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SharedModel/CostTupleList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SharedModel/Owner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-          <folding>
-            <element signature="e#397#398#0" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#476#477#0" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
-            <element signature="e#541#542#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#638#639#0" expanded="true" />
-            <element signature="e#679#680#0" expanded="true" />
-            <element signature="e#709#710#0" expanded="true" />
-            <element signature="e#771#772#0" expanded="true" />
-            <element signature="e#818#819#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SharedModel/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-448">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SharedModel/MyDate.java" />
-    <entry file="file://$PROJECT_DIR$/src/SharedModel/Cost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/postgresql-9.4-1206-jdbc4.jar!/org/postgresql/core/v3/QueryExecutorImpl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -824,34 +730,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java">
+    <entry file="jar://$PROJECT_DIR$/postgresql-9.4-1206-jdbc4.jar!/org/postgresql/jdbc2/AbstractJdbc2Statement.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="73" column="37" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
-          <folding>
-            <element signature="docComment;class#ItemModelManager#0" />
-          </folding>
+        <state relative-caret-position="7060">
+          <caret line="556" column="19" lean-forward="true" selection-start-line="556" selection-start-column="19" selection-end-line="556" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SharedModel/Cost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/ItemQuery.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="22" column="89" selection-start-line="22" selection-start-column="89" selection-end-line="22" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client/View/StartClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        <state relative-caret-position="144">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -862,41 +758,138 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client/Controller/ClientController.java">
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/ItemModelManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="129">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+          <folding>
+            <element signature="docComment;class#ItemModelManager#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/IModelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-64">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SharedInterfaces/IServerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="19" column="87" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SharedInterfaces/IClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/IPersistance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="29" column="51" lean-forward="true" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/Controller/ServerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="256">
+          <caret line="51" column="40" lean-forward="true" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/postgresql-9.4-1206-jdbc4.jar!/org/postgresql/jdbc2/AbstractJdbc2Statement.class">
+    <entry file="file://$PROJECT_DIR$/src/SharedModel/OwnerTupleList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7060">
-          <caret line="556" column="19" lean-forward="true" selection-start-line="556" selection-start-column="19" selection-end-line="556" selection-end-column="19" />
+        <state relative-caret-position="448">
+          <caret line="31" column="41" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuery.java">
+    <entry file="file://$PROJECT_DIR$/src/SharedModel/CostTupleList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        <state relative-caret-position="128">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostModelManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="64" column="59" lean-forward="true" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
+        <state relative-caret-position="892">
+          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
           <folding>
             <element signature="docComment;class#CostModelManager#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/CostQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="71" lean-forward="true" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/OwnerQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/Domain/Mediator/OwnerModelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="43" column="65" lean-forward="true" selection-start-line="43" selection-start-column="65" selection-end-line="43" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#OwnerModelManager#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/Controller/ClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SharedModel/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SharedModel/Owner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/View/StartClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="42" column="57" lean-forward="true" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
         </state>
       </provider>
     </entry>
