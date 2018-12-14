@@ -2,6 +2,7 @@ package SharedInterfaces;
 
 import SharedModel.Cost;
 import SharedModel.Item;
+import SharedModel.Owner;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -11,9 +12,11 @@ import java.util.ArrayList;
  */
 public interface IClientController extends Observer<String>
 {
+	void addThisAsObserver() throws RemoteException;
+
 	ArrayList<Cost> requestCostRelation() throws RemoteException;
 
 	ArrayList<Item> requestItemRelation() throws RemoteException;
 
-	void addThisAsObserver() throws RemoteException;
+	ArrayList<Owner> requestOwnerRelation() throws RemoteException;
 }

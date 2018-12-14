@@ -1,6 +1,6 @@
 package Server.Domain.Mediator;
 
-import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
@@ -18,7 +18,7 @@ public interface IPersistance
 	 * @return ResultsSet
 	 * @throws SQLException
 	 */
-	ResultSet pullResultSet() throws SQLException;
+	PreparedStatement getPreparedStatement() throws SQLException;
 
 	/**
 	 * Creates a PreparedStatement for the database from the received string and executes it.

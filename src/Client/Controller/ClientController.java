@@ -3,10 +3,7 @@ package Client.Controller;
 import SharedInterfaces.IClientController;
 import SharedInterfaces.IServerController;
 import SharedInterfaces.Observable;
-import SharedModel.Cost;
-import SharedModel.CostTupleList;
-import SharedModel.Item;
-import SharedModel.ItemTupleList;
+import SharedModel.*;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -59,6 +56,21 @@ public class ClientController implements IClientController
 			e.printStackTrace();
 		}
 		catch (RemoteException e)
+		{
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	@Override
+	public ArrayList<Owner> requestOwnerRelation() throws RemoteException
+	{
+		try
+		{
+			return iServerController.executeOwnerRelationRequest();
+		}
+		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}

@@ -2,8 +2,8 @@ package Server.Domain.Mediator;
 
 import SharedModel.Item;
 import SharedModel.ItemTupleList;
-import SharedModel.Owner;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -41,35 +41,33 @@ public class ItemModelManager implements IModelManager<Item>
 	@Override
 	public ArrayList<Item> assembleArrayList() throws SQLException
 	{
-		ResultSet rsItemTable = iPersistanceItem.pullResultSet();
+		PreparedStatement stmtPullItemRelation = iPersistanceItem.getPreparedStatement();
+		ResultSet rsItem = stmtPullItemRelation.executeQuery();
 
 		ItemTupleList temp_itemTupleList = ItemTupleList.getInstance();
 		ArrayList<Item> temp_arr = temp_itemTupleList.getTupleList();
 
-		while (rsItemTable.next())
+		while (rsItem.next())
 		{
 			temp_arr.add(
 					new Item(
-							rsItemTable.getString("serial_id"),
-							rsItemTable.getString("category"),
-							new Owner(
-									rsItemTable.getString("owner"),
-									rsItemTable.getString("coinbaseEmail"),
-									rsItemTable.getString("btcWalletAddress")),
-							rsItemTable.getString("brand"),
-							rsItemTable.getString("model"),
-							rsItemTable.getDouble("price"),
-							rsItemTable.getInt("qty"),
-							rsItemTable.getDate("orderdate"),
-							rsItemTable.getDate("arrivaldate"),
-							rsItemTable.getString("seller"),
-							rsItemTable.getString("notes"),
-							rsItemTable.getString("sn_notes")
+							rsItem.getString("serial_id"),
+							rsItem.getString("category"),
+							rsItem.getString("owner"),
+							rsItem.getString("brand"),
+							rsItem.getString("model"),
+							rsItem.getDouble("price"),
+							rsItem.getInt("qty"),
+							rsItem.getDate("orderdate"),
+							rsItem.getDate("arrivaldate"),
+							rsItem.getString("seller"),
+							rsItem.getString("notes"),
+							rsItem.getString("sn_notes")
 					)
 			);
 		}
-		// Freeing up resources
-		rsItemTable.close();
+		// this also closes the ResultSet
+		stmtPullItemRelation.close();
 
 		return temp_arr;
 	}
@@ -86,7 +84,7 @@ public class ItemModelManager implements IModelManager<Item>
 		sb.append("values (");
 		sb.append(object.getSerial_id() + ",");
 		sb.append(object.getCategory() + ",");
-		sb.append(object.getOwner().getName() + ",");
+		sb.append(object.getOwner() + ",");
 		sb.append(object.getBrand() + ",");
 		sb.append(object.getModel() + ",");
 		sb.append(object.getPrice() + ",");
@@ -110,7 +108,7 @@ public class ItemModelManager implements IModelManager<Item>
 
 		sb.append("serial_id = " + object.getSerial_id() + ",");
 		sb.append("category = " + object.getCategory() + ",");
-		sb.append("owner = " + object.getOwner().getName() + ",");
+		sb.append("owner = " + object.getOwner() + ",");
 		sb.append("brand = " + object.getBrand() + ",");
 		sb.append("model = " + object.getModel() + ",");
 		sb.append("price = " + object.getPrice() + ",");

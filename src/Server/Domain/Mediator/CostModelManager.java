@@ -2,8 +2,8 @@ package Server.Domain.Mediator;
 
 import SharedModel.Cost;
 import SharedModel.CostTupleList;
-import SharedModel.Owner;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -41,36 +41,30 @@ public class CostModelManager implements IModelManager<Cost>
 	@Override
 	public ArrayList<Cost> assembleArrayList() throws SQLException
 	{
-		// pulling from Database
-		ResultSet rsCostTable = iPersistanceCost.pullResultSet();
+		PreparedStatement stmtPullCostRelation = iPersistanceCost.getPreparedStatement();
+		ResultSet rsCost = stmtPullCostRelation.executeQuery();
 
-		// pulling from Model
 		CostTupleList temp_costTupleList = CostTupleList.getInstance();
 		ArrayList<Cost> temp_arr = temp_costTupleList.getTupleList();
 
-		// Assembling Data into Model
-		while (rsCostTable.next())
+		while (rsCost.next())
 		{
-			// TODO: Inside the DB edit "serialid" into "serial_id"
 			temp_arr.add(
 					new Cost(
-							rsCostTable.getInt("serial_id"),
-							rsCostTable.getString("category"),
-							new Owner(
-									rsCostTable.getString("owner"),
-									rsCostTable.getString("coinbaseEmail"),
-									rsCostTable.getString("btcWalletAddres")),
-							rsCostTable.getString("description"),
-							rsCostTable.getDouble("ordervalue"),
-							rsCostTable.getDouble("reimbursed"),
-							rsCostTable.getDate("paymentdate"),
-							rsCostTable.getString("status"),
-							rsCostTable.getString("notes")
+							rsCost.getInt("serial_id"),
+							rsCost.getString("category"),
+							rsCost.getString("owner"),
+							rsCost.getString("description"),
+							rsCost.getDouble("ordervalue"),
+							rsCost.getDouble("reimbursed"),
+							rsCost.getDate("paymentdate"),
+							rsCost.getString("status"),
+							rsCost.getString("notes")
 					)
 			);
 		}
-		// Freeing up resources
-		rsCostTable.close();
+		// this also closes the ResultSet
+		stmtPullCostRelation.close();
 
 		return temp_arr;
 	}
@@ -108,7 +102,7 @@ public class CostModelManager implements IModelManager<Cost>
 
 		sb.append("serial_id = " + object.getSerial_id() + ",");
 		sb.append("category = " + object.getCategory() + ",");
-		sb.append("owner = " + object.getOwner().getName() + ",");
+		sb.append("owner = " + object.getOwner() + ",");
 		sb.append("description = " + object.getDescription() + ",");
 		sb.append("ordervalue= " + object.getOrdervalue() + ",");
 		sb.append("reimbursed = " + object.getReimbursed() + ",");
