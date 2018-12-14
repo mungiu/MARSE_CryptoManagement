@@ -44,4 +44,10 @@ public class Owner implements Serializable
 	{
 		this.btcWalletAddress = btcWalletAddress;
 	}
+
+	@Override
+	public String toString()
+	{
+		return name + "\t\t" + coinbaseEmail + "\t\t" + btcWalletAddress;
+	}
 }

@@ -2,6 +2,7 @@ package SharedInterfaces;
 
 import SharedModel.Cost;
 import SharedModel.Item;
+import SharedModel.Owner;
 
 import java.rmi.RemoteException;
 import java.sql.SQLException;
@@ -15,4 +16,6 @@ public interface IServerController extends Observable<String>
 	ArrayList<Item> executeItemRelationRequest() throws SQLException, RemoteException;
 
 	ArrayList<Cost> executeCostRelationRequest() throws SQLException, RemoteException;
+
+	ArrayList<Owner> executeOwnerRelationRequest() throws SQLException, RemoteException;
 }

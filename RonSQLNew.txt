@@ -31,12 +31,12 @@ create domain d_GPUdepreciation integer;
 create domain d_MBdepreciation integer;
 create domain d_otherDepreciation integer;
 
-/* creating table for Owner */
+/* creating table for owners */
 										  
-create table Owner (
+create table owners (
 	Owner d_name primary key,
-	Email varchar(30),
-	Wallet text
+	CoinbaseEmail varchar(30),
+	btcWalletAddress text
 );												   												   
 create table Costs(
 	Serial_Id serial primary key,
@@ -117,7 +117,7 @@ create view Profitability_full3 as
 	select * from Profitability_full3;
 
 
-/* TEMPORARY * /
+/* TEMPORARY */
 
 create domain d_mbLifespan integer;
 create domain d_gpuLifespan integer;
@@ -140,41 +140,41 @@ create table Factors(
 INSERT INTO Factors("MB Lifespan", "GPU Lifespan", "Other Lifespan", "GPU Assets", "MB Assets", "Other Assets", "Total Assets")
 	VALUES (72, 38, 120, null, null, null, null);	
 
-/* Temporary END* /
+/* Temporary END */
 
 
 
 /* Owners */
 												   												  		   
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('Jakub Duchon', 'jakub.duchon9@gmail.com', null );	
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('Mikkel Kofer', 'dinvenmikkel@gmail.com', null );	
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('Herman Trakachenok', null , '3KwXJCQc8fKvU4oEkwSkPVQLLh7YH1Q8s7' );	
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('Cristian Scobiola', null, '14V4waUGBJUuUxLoBNXvcJsN52En2bUxst' );	
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('Damian Seu', 'my own acc', 'my own acc' );	
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('William', 'williamdissing@gmail.com', null);	
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('Dumitru Karpov', 'petfam04@yahoo.com',null);	
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('Petru Dascal', 'petea11@yahoo.com', null );	
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('Andrei Mungiu', 'andrei_mungiu@yahoo.com', null );
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('Vasile/Rodica', 'my own acc', 'my own acc' );												   
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('Arthur Cohrt Hillgaard', 'Arthurjan3@gmail.com', null );	
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('JMP', null, null );
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('Nicolae Gheorghita', 'nicolae.gheorghita@hotmail.com', null );													   
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('Valentin Graur', 'my own acc', 'my own acc' );	
-INSERT INTO Owner(Owner, Email, wallet)
+INSERT INTO owners(Owner, CoinbaseEmail, btcWalletAddress)
 	VALUES ('Emil Juel Andersen', 'emiljuelandersen@gmail.com', null );	
 											  
 /* GPU */
@@ -421,10 +421,3 @@ INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation
 	VALUES ('Nov', 0.06776469, 0.169970190311824, 27947, 2811, 161, 276);   
 INSERT INTO Profitability(month, MinedBTC, OtherCosts, BTCValue, GPUDepreciation, MBDepreciation, OtherDepreciation)
 	VALUES ('Dec', null, null, null, null, null, null);
-
-		   
-					   
-												   
-												   
-												   
-												   
