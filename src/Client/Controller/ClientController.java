@@ -4,6 +4,7 @@ import SharedInterfaces.IClientController;
 import SharedInterfaces.IServerController;
 import SharedInterfaces.Observable;
 import SharedModel.*;
+import org.postgresql.util.PSQLException;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -76,6 +77,56 @@ public class ClientController implements IClientController
 		}
 
 		return null;
+	}
+
+	@Override
+	public void insertCostObject(Cost cost) throws RemoteException, SQLException
+	{
+		iServerController.executeCostInsert(cost);
+		System.out.println("Inserted: " + cost.toString());
+	}
+
+	@Override
+	public void insertItemObject(Item item) throws RemoteException, SQLException
+	{
+		iServerController.executeItemInsert(item);
+		System.out.println("Inserted: " + item.toString());
+	}
+
+	@Override
+	public void insertOwnerObject(Owner owner) throws RemoteException, SQLException
+	{
+		try
+		{
+			iServerController.executeOwnerInsert(owner);
+			System.out.println("Inserted: " + owner.toString());
+		}
+		catch (PSQLException e)
+		{
+			System.out.println("ERROR: duplicate key value violates unique constraint \"owners_pkey\"" +
+					"Detail: Key (owner)=(" + owner.getName() + ") already exists.");
+		}
+	}
+
+	@Override
+	public void updateItemTuple(Item item) throws RemoteException, SQLException
+	{
+		iServerController.executeUpdateItemTuple(item);
+		System.out.println("Inserted: " + item.toString());
+	}
+
+	@Override
+	public void updateCostTuple(Cost cost) throws RemoteException, SQLException
+	{
+		iServerController.executeUpdateCostTuple(cost);
+		System.out.println("Inserted: " + cost.toString());
+	}
+
+	@Override
+	public void updateOwnerTuple(Owner owner) throws RemoteException, SQLException
+	{
+		iServerController.executeUpdateOwnerTuple(owner);
+		System.out.println("Inserted: " + owner.toString());
 	}
 
 	public void addThisAsObserver() throws RemoteException

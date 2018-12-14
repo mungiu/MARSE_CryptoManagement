@@ -18,4 +18,16 @@ public interface IServerController extends Observable<String>
 	ArrayList<Cost> executeCostRelationRequest() throws SQLException, RemoteException;
 
 	ArrayList<Owner> executeOwnerRelationRequest() throws SQLException, RemoteException;
+
+	void executeCostInsert(Cost cost) throws SQLException, RemoteException;
+
+	void executeItemInsert(Item item) throws SQLException, RemoteException;
+
+	void executeOwnerInsert(Owner owner) throws SQLException, RemoteException;
+
+	void executeUpdateItemTuple(Item item) throws SQLException, RemoteException;
+
+	void executeUpdateCostTuple(Cost cost) throws SQLException, RemoteException;
+
+	void executeUpdateOwnerTuple(Owner owner) throws SQLException, RemoteException;
 }

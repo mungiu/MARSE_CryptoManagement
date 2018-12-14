@@ -51,7 +51,7 @@ public class CostModelManager implements IModelManager<Cost>
 		{
 			temp_arr.add(
 					new Cost(
-							rsCost.getInt("serial_id"),
+							rsCost.getString("serial_id"),
 							rsCost.getString("category"),
 							rsCost.getString("owner"),
 							rsCost.getString("description"),
@@ -74,20 +74,19 @@ public class CostModelManager implements IModelManager<Cost>
 	{
 		StringBuilder sb = new StringBuilder();
 
-		// SQL INSERT COMMAND COMPONENTS: insert into "table_name" (col1, col2) values (val1, val2)
-		sb.append("insert into cost ");
-		sb.append("(serial_id, category, owner, description,  ordervalue, reimbursed, paymentdate, status, notes) ");
+		// SQL INSERT COMMAND COMPONENTS: insert into "table_name" (col1, col2) values ('val1', 'val2')
+		sb.append("insert into costs ");
+		sb.append("(category, owner, description,  ordervalue, reimbursed, paymentdate, status, notes) ");
 
 		sb.append("values (");
-		sb.append(object.getSerial_id() + ",");
-		sb.append(object.getCategory() + ",");
-		sb.append(object.getOwner() + ",");
-		sb.append(object.getDescription() + ",");
+		sb.append("'" + object.getCategory() + "'" + ",");
+		sb.append("'" + object.getOwner() + "'" + ",");
+		sb.append("'" + object.getDescription() + "'" + ",");
 		sb.append(object.getOrdervalue() + ",");
 		sb.append(object.getReimbursed() + ",");
-		sb.append(object.getPaymentdate().toString() + ",");
-		sb.append(object.getStatus() + ",");
-		sb.append(object.getNotes() + ")");
+		sb.append("'" + object.getPaymentdate().toString() + "'" + ",");
+		sb.append("'" + object.getStatus() + "'" + ",");
+		sb.append("'" + object.getNotes() + "'" + ")");
 
 		iPersistanceCost.pushInsertCommand(sb.toString());
 	}
@@ -98,17 +97,20 @@ public class CostModelManager implements IModelManager<Cost>
 		StringBuilder sb = new StringBuilder();
 
 		// sql UPDATE command components: update "table_name" set "col1 = val1, col2 = val2" where "condition";
-		sb.append("update cost set ");
+		sb.append("update costs set ");
 
-		sb.append("serial_id = " + object.getSerial_id() + ",");
-		sb.append("category = " + object.getCategory() + ",");
-		sb.append("owner = " + object.getOwner() + ",");
-		sb.append("description = " + object.getDescription() + ",");
+		sb.append("category = " + "'" + object.getCategory() + "'" + ",");
+		sb.append("owner = " + "'" + object.getOwner() + "'" + ",");
+		sb.append("description = " + "'" + object.getDescription() + "'" + ",");
 		sb.append("ordervalue= " + object.getOrdervalue() + ",");
 		sb.append("reimbursed = " + object.getReimbursed() + ",");
-		sb.append("paymentdate = " + object.getPaymentdate().toString() + ",");
-		sb.append("status = " + object.getStatus() + ",");
-		sb.append("notes = " + object.getNotes() + ",");
+		sb.append("paymentdate = " + "'" + object.getPaymentdate().toString() + "'" + ",");
+		sb.append("status = " + "'" + object.getStatus() + "'" + ",");
+		sb.append("notes = " + "'" + object.getNotes() + "'");
+
+		sb.append(" where ");
+
+		sb.append("serial_id = " + object.getSerial_id());
 
 		iPersistanceCost.pushUpdateCommand(sb.toString());
 	}

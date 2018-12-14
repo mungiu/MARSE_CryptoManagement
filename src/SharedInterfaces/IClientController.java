@@ -5,6 +5,7 @@ import SharedModel.Item;
 import SharedModel.Owner;
 
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -19,4 +20,16 @@ public interface IClientController extends Observer<String>
 	ArrayList<Item> requestItemRelation() throws RemoteException;
 
 	ArrayList<Owner> requestOwnerRelation() throws RemoteException;
+
+	void insertCostObject(Cost cost) throws RemoteException, SQLException;
+
+	void insertItemObject(Item item) throws RemoteException, SQLException;
+
+	void insertOwnerObject(Owner owner) throws RemoteException, SQLException;
+
+	void updateItemTuple(Item item) throws RemoteException, SQLException;
+
+	void updateCostTuple(Cost cost) throws RemoteException, SQLException;
+
+	void updateOwnerTuple(Owner owner) throws RemoteException, SQLException;
 }

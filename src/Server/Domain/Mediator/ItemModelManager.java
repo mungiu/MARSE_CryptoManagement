@@ -77,23 +77,22 @@ public class ItemModelManager implements IModelManager<Item>
 	{
 		StringBuilder sb = new StringBuilder();
 
-		// SQL INSERT COMMAND COMPONENTS: insert into "table_name" (col1, col2) values (val1, val2)
-		sb.append("insert into item ");
-		sb.append("(serial_id, category, owner, brand, model, price, qty, orderDate, arrivalDate, seller, notes, sn_notes) ");
+		// SQL INSERT COMMAND COMPONENTS: insert into "table_name" (col1, col2) values ('val1', 'val2')
+		sb.append("insert into items ");
+		sb.append("(category, owner, brand, model, price, qty, orderDate, arrivalDate, seller, notes, sn_notes) ");
 
 		sb.append("values (");
-		sb.append(object.getSerial_id() + ",");
-		sb.append(object.getCategory() + ",");
-		sb.append(object.getOwner() + ",");
-		sb.append(object.getBrand() + ",");
-		sb.append(object.getModel() + ",");
+		sb.append("'" + object.getCategory() + "'" + ",");
+		sb.append("'" + object.getOwner() + "'" + ",");
+		sb.append("'" + object.getBrand() + "'" + ",");
+		sb.append("'" + object.getModel() + "'" + ",");
 		sb.append(object.getPrice() + ",");
 		sb.append(object.getQty() + ",");
-		sb.append(object.getOrderDate().toString() + ",");
-		sb.append(object.getArrivalDate().toString() + ",");
-		sb.append(object.getSeller() + ",");
-		sb.append(object.getNotes() + ",");
-		sb.append(object.getSn_notes() + ")");
+		sb.append("'" + object.getOrderDate().toString() + "'" + ",");
+		sb.append("'" + object.getArrivalDate().toString() + "'" + ",");
+		sb.append("'" + object.getSeller() + "'" + ",");
+		sb.append("'" + object.getNotes() + "'" + ",");
+		sb.append("'" + object.getSn_notes() + "'" + ")");
 
 		iPersistanceItem.pushInsertCommand(sb.toString());
 	}
@@ -103,21 +102,25 @@ public class ItemModelManager implements IModelManager<Item>
 	{
 		StringBuilder sb = new StringBuilder();
 
-		// sql UPDATE command components: update "table_name" set "col1 = val1, col2 = val2" where "condition";
-		sb.append("update item set ");
+		// sql UPDATE command components: update "table_name" set "col1 = 'val1', col2 = 'val2'" where "condition";
+		sb.append("update items set ");
 
-		sb.append("serial_id = " + object.getSerial_id() + ",");
-		sb.append("category = " + object.getCategory() + ",");
-		sb.append("owner = " + object.getOwner() + ",");
-		sb.append("brand = " + object.getBrand() + ",");
-		sb.append("model = " + object.getModel() + ",");
+		sb.append("category = " + "'" + object.getCategory() + "'" + ",");
+		sb.append("owner = " + "'" + object.getOwner() + "'" + ",");
+		sb.append("brand = " + "'" + object.getBrand() + "'" + ",");
+		sb.append("model = " + "'" + object.getModel() + "'" + ",");
 		sb.append("price = " + object.getPrice() + ",");
 		sb.append("qty = " + object.getQty() + ",");
-		sb.append("orderdate = " + object.getOrderDate().toString() + ",");
-		sb.append("arrivaldate = " + object.getArrivalDate().toString() + ",");
-		sb.append("seller = " + object.getSeller() + ",");
-		sb.append("notes = " + object.getNotes() + ",");
-		sb.append("sn_notes = " + object.getSn_notes() + ")");
+		sb.append("orderdate = " + "'" + object.getOrderDate().toString() + "'" + ",");
+		sb.append("arrivaldate = " + "'" + object.getArrivalDate().toString() + "'" + ",");
+		sb.append("seller = " + "'" + object.getSeller() + "'" + ",");
+		sb.append("notes = " + "'" + object.getNotes() + "'" + ",");
+		sb.append("sn_notes = " + "'" + object.getSn_notes() + "'");
+
+		sb.append(" where ");
+
+		sb.append("serial_id = " + object.getSerial_id());
+
 
 		iPersistanceItem.pushUpdateCommand(sb.toString());
 	}
