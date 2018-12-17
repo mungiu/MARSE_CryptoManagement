@@ -53,6 +53,42 @@ public class ServerController implements IServerController
 	}
 
 	@Override
+	public void executeCostInsert(Cost cost) throws SQLException, RemoteException
+	{
+		costModelManager.assembleSQLInsertCommand(cost);
+	}
+
+	@Override
+	public void executeItemInsert(Item item) throws SQLException, RemoteException
+	{
+		itemModelManager.assembleSQLInsertCommand(item);
+	}
+
+	@Override
+	public void executeOwnerInsert(Owner owner) throws SQLException, RemoteException
+	{
+		ownerModelManager.assembleSQLInsertCommand(owner);
+	}
+
+	@Override
+	public void executeUpdateItemTuple(Item item) throws SQLException, RemoteException
+	{
+		itemModelManager.assembleSQLUpdateCommand(item);
+	}
+
+	@Override
+	public void executeUpdateCostTuple(Cost cost) throws SQLException, RemoteException
+	{
+		costModelManager.assembleSQLUpdateCommand(cost);
+	}
+
+	@Override
+	public void executeUpdateOwnerTuple(Owner owner) throws SQLException, RemoteException
+	{
+		ownerModelManager.assembleSQLUpdateCommand(owner);
+	}
+
+	@Override
 	public void addObserver(Observer<String> obs) throws RemoteException
 	{
 		observers.add(obs);

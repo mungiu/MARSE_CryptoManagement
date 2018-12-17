@@ -4,14 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class CostQuery extends DbCommunication implements IPersistance
+public class CostQuery implements IPersistance
 {
 	Connection conn;
 
 	public CostQuery() throws SQLException
 	{
-		super();
-		conn = super.getConn();
+		conn = DbCommunication.getInstance().getConn();
 	}
 
 	@Override

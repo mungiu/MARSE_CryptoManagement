@@ -4,14 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class OwnerQuery extends DbCommunication implements IPersistance
+public class OwnerQuery implements IPersistance
 {
 	Connection conn;
 
 	public OwnerQuery()
 	{
-		super();
-		conn = super.getConn();
+		conn = DbCommunication.getInstance().getConn();
 	}
 
 	@Override

@@ -5,7 +5,7 @@ import java.sql.Date;
 
 public class Cost implements Serializable
 {
-	private int serial_id;
+	private String serial_id;
 	private String category;
 	private String owner;
 	private String description;
@@ -15,7 +15,8 @@ public class Cost implements Serializable
 	private String status;
 	private String notes;
 
-	public Cost(int serial_id, String category, String owner, String description, double ordervalue,
+	// ctor used for reading from DB
+	public Cost(String serial_id, String category, String owner, String description, double ordervalue,
 				double reimbursed, Date paymentdate, String status, String notes)
 	{
 		this.serial_id = serial_id;
@@ -29,12 +30,26 @@ public class Cost implements Serializable
 		this.notes = notes;
 	}
 
-	public int getSerial_id()
+	// ctor used for writing to DB
+	public Cost(String category, String owner, String description, double ordervalue,
+				double reimbursed, Date paymentdate, String status, String notes)
+	{
+		this.category = category;
+		this.owner = owner;
+		this.description = description;
+		this.ordervalue = ordervalue;
+		this.reimbursed = reimbursed;
+		this.paymentdate = paymentdate;
+		this.status = status;
+		this.notes = notes;
+	}
+
+	public String getSerial_id()
 	{
 		return serial_id;
 	}
 
-	public void setSerial_id(int serial_id)
+	public void setSerial_id(String serial_id)
 	{
 		this.serial_id = serial_id;
 	}
@@ -122,6 +137,8 @@ public class Cost implements Serializable
 	@Override
 	public String toString()
 	{
-		return serial_id + "\t\t" + category + "\t\t" + owner + "\t\t" + description + "\t\t" + ordervalue + "\t\t" + reimbursed + "\t\t" + paymentdate + "\t\t" + status + "\t\t" + notes;
+		return serial_id + "\t\t" + category + "\t\t" + owner + "\t\t" + description +
+				"\t\t" + ordervalue + "\t\t" + reimbursed + "\t\t" + paymentdate +
+				"\t\t" + status + "\t\t" + notes;
 	}
 }

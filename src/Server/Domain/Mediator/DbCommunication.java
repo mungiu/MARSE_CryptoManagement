@@ -14,12 +14,15 @@ public class DbCommunication
 {
 	private Connection conn;
 
+	private static DbCommunication instance;
+	private static Lock lock = new ReentrantLock();
+
 	final static String connectString = "jdbc:postgresql://localhost:5432/postgres";
 	final static String userName = "postgres";
 	final static String password = "1111";
 	private int count = 0;
 
-	public DbCommunication()
+	private DbCommunication()
 	{
 		try
 		{
@@ -48,5 +51,17 @@ public class DbCommunication
 	public Connection getConn()
 	{
 		return conn;
+	}
+
+	public static DbCommunication getInstance()
+	{
+		if (instance == null)
+			synchronized ((lock))
+			{
+				if (instance == null)
+					instance = new DbCommunication();
+			}
+
+		return instance;
 	}
 }
