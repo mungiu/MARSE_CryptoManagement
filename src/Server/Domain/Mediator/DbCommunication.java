@@ -8,7 +8,6 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Singleton (thread safe) class establishing a connection to the database on instantiation using the java.sql.Connection class.
- * TODO have a connect button in our interface? That will run this?
  */
 public class DbCommunication
 {
@@ -17,9 +16,9 @@ public class DbCommunication
 	private static DbCommunication instance;
 	private static Lock lock = new ReentrantLock();
 
-	final static String connectString = "jdbc:postgresql://localhost:5432/postgres";
-	final static String userName = "postgres";
-	final static String password = "1111";
+	private final static String connectString = "jdbc:postgresql://localhost:5432/postgres";
+	private final static String userName = "postgres";
+	private final static String password = "1111";
 	private int count = 0;
 
 	private DbCommunication()
@@ -29,7 +28,7 @@ public class DbCommunication
 			// NOTE: Oracle connection is implemented differently, check Oracle documentation
 			conn = DriverManager.getConnection(connectString, userName, password);
 			conn.setSchema("MARSE");
-			// TODO AutoCommi off?
+			// TODO AutoCommit off?
 //			conn.setAutoCommit(false);
 
 			// TODO have a logger for all print outs
@@ -48,7 +47,8 @@ public class DbCommunication
 		System.out.println(count);
 	}
 
-	public Connection getConn()
+	// NOTE: no modifier means its package private
+	Connection getConn()
 	{
 		return conn;
 	}
