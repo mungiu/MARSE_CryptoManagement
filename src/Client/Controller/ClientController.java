@@ -46,6 +46,7 @@ public class ClientController implements IClientController
 		return null;
 	}
 
+	@Override
 	public ArrayList<Item> requestItemRelation()
 	{
 		try
@@ -140,7 +141,7 @@ public class ClientController implements IClientController
 	 * and FORCE updates the data for that specific view by making the client request the data itself.
 	 *
 	 * @param obs The observable object, in this case should be the server.
-	 * @param arg Not yet defined, TODO
+	 * @param arg Not yet defined
 	 */
 	@Override
 	public void notify(Observable obs, String arg)
