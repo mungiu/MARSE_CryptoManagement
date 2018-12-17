@@ -4,14 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ItemQuery extends DbCommunication implements IPersistance
+public class ItemQuery implements IPersistance
 {
 	Connection conn;
 
 	public ItemQuery() throws SQLException
 	{
-		super();
-		conn = super.getConn();
+		conn = DbCommunication.getInstance().getConn();
 	}
 
 	@Override

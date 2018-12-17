@@ -15,7 +15,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Converts SQL data into serializable objects to be passed on to the client.
  * Converts client requests into sql statements to be passed on to the database for execution.
  */
-public class OwnerModelManager
+public class OwnerModelManager implements IModelManager<Owner>
 {
 	private static OwnerModelManager instance;
 	private static Lock lock = new ReentrantLock();
@@ -38,6 +38,7 @@ public class OwnerModelManager
 		return instance;
 	}
 
+	@Override
 	public ArrayList<Owner> assembleArrayList() throws SQLException
 	{
 		PreparedStatement stmtPullOwnerRelation = iPersistanceOwner.getPreparedStatement();
@@ -60,5 +61,40 @@ public class OwnerModelManager
 		stmtPullOwnerRelation.close();
 
 		return temp_arr;
+	}
+
+	@Override
+	public void assembleSQLInsertCommand(Owner object) throws SQLException
+	{
+		StringBuilder sb = new StringBuilder();
+
+		// SQL INSERT COMMAND COMPONENTS: insert into "table_name" (col1, col2) values ('val1', 'val2')
+		sb.append("insert into owners ");
+		sb.append("(owner, coinbaseEmail, btcWalletAddress) ");
+
+		sb.append("values (");
+		sb.append("'" + object.getName() + "'" + ",");
+		sb.append("'" + object.getCoinbaseEmail() + "'" + ",");
+		sb.append("'" + object.getBtcWalletAddress() + "'" + ")");
+
+		iPersistanceOwner.pushInsertCommand(sb.toString());
+	}
+
+	@Override
+	public void assembleSQLUpdateCommand(Owner object) throws SQLException
+	{
+		StringBuilder sb = new StringBuilder();
+
+		// sql UPDATE command components: update "table_name" set "col1 = 'val1', col2 = 'val2'" where "condition";
+		sb.append("update owners set ");
+
+		sb.append("coinbaseEmail = " + "'" + object.getCoinbaseEmail() + "'" + ",");
+		sb.append("btcWalletAddress = " + "'" + object.getBtcWalletAddress() + "'");
+
+		sb.append(" where ");
+
+		sb.append("owner = " + "'" + object.getName() + "'");
+
+		iPersistanceOwner.pushUpdateCommand(sb.toString());
 	}
 }

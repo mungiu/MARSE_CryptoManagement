@@ -8,6 +8,7 @@ public class Owner implements Serializable
 	private String coinbaseEmail;
 	private String btcWalletAddress;
 
+	// same ctor used for read & write to DB since no serialID available
 	public Owner(String name, String coinbaseEmail, String btcWalletAddress)
 	{
 		this.name = name;

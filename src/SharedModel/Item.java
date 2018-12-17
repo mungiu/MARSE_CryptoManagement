@@ -18,10 +18,28 @@ public class Item implements Serializable
 	private String notes;
 	private String sn_notes;
 
+	// ctor used for reading from DB
 	public Item(String serial_id, String category, String owner, String brand, String model, double price, int qty,
 				Date orderDate, Date arrivalDate, String seller, String notes, String sn_notes)
 	{
 		this.serial_id = serial_id;
+		this.category = category;
+		this.owner = owner;
+		this.brand = brand;
+		this.model = model;
+		this.price = price;
+		this.qty = qty;
+		this.orderDate = orderDate;
+		this.arrivalDate = arrivalDate;
+		this.seller = seller;
+		this.notes = notes;
+		this.sn_notes = sn_notes;
+	}
+
+	// ctor used for writing to DB
+	public Item(String category, String owner, String brand, String model, double price, int qty,
+				Date orderDate, Date arrivalDate, String seller, String notes, String sn_notes)
+	{
 		this.category = category;
 		this.owner = owner;
 		this.brand = brand;
