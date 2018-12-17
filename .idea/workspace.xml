@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="Connection established and fully tested for all core functionality">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/JDBC/Create_Table.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/JDBC/Insert_Into.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/JDBC/Select_From.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/Mediator/DbCommunication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/Mediator/DbCommunication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MARSE_CryptoManagement/Server/Domain/Mediator/Test_DbConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Controller/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/JDBC/Create_Table.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/JDBC/Insert_Into.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/JDBC/Select_From.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Domain/Mediator/DbCommunication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Domain/Mediator/Test_DbConnection.java" beforeDir="false" />
-    </list>
+    <list default="true" id="9dd19bd6-2687-4218-b362-e3ea603b6cd7" name="Default Changelist" comment="Connection established and fully tested for all core functionality" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +18,7 @@
     <session id="-1927939369">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="46" />
+          <entry key="project.closed" value="47" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="8" />
           <entry key="project.open.time.10" value="1" />
@@ -104,8 +91,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Client/Controller/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="61" column="32" lean-forward="true" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+            <state relative-caret-position="181">
+              <caret line="58" column="9" lean-forward="true" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -348,7 +335,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="data source&#9;PSI&#9;JAVA://org.postgresql.ds.jdbc23.AbstractJdbc23PoolingDataSource#dataSourceName&#10;version c&#9;ACTION&#9;Start.Use.Vcs&#10;version &#9;ACTION&#9;ActivateVersionControlToolWindow" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545036133327" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545036174701" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/postgresql-9.4-1206-jdbc4.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -520,7 +507,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545035090683</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Connection established and fully tested for all core functionality">
+      <created>1545036165299</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1545036165299</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -554,7 +548,7 @@
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.29787233" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.29787233" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32928804" />
       <window_info anchor="right" id="Palette" order="1" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
@@ -877,8 +871,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Client/Controller/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="61" column="32" lean-forward="true" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+        <state relative-caret-position="181">
+          <caret line="58" column="9" lean-forward="true" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
         </state>
       </provider>
     </entry>
