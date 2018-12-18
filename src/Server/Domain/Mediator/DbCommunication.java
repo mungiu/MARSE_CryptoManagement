@@ -19,7 +19,6 @@ public class DbCommunication
 	private final static String connectString = "jdbc:postgresql://localhost:5432/postgres";
 	private final static String userName = "postgres";
 	private final static String password = "1111";
-	private int count = 0;
 
 	private DbCommunication()
 	{
@@ -42,9 +41,6 @@ public class DbCommunication
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-
-		count++;
-		System.out.println(count);
 	}
 
 	// NOTE: no modifier means its package private
