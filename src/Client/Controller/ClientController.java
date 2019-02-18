@@ -4,7 +4,7 @@ import SharedInterfaces.IClientController;
 import SharedInterfaces.IServerController;
 import SharedInterfaces.Observable;
 import SharedModel.*;
-import org.postgresql.util.PSQLException;
+//import org.postgresql.util.PSQLException;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -97,16 +97,16 @@ public class ClientController implements IClientController
 	@Override
 	public void insertOwnerObject(Owner owner) throws RemoteException, SQLException
 	{
-		try
-		{
+//		try
+//		{
 			iServerController.executeOwnerInsert(owner);
 			System.out.println("Inserted: " + owner.toString());
-		}
-		catch (PSQLException e)
-		{
-			System.out.println("ERROR: duplicate key value violates unique constraint \"owners_pkey\"" +
-					"Detail: Key (owner)=(" + owner.getName() + ") already exists.");
-		}
+//		}
+//		catch (PSQLException e)
+//		{
+//			System.out.println("ERROR: duplicate key value violates unique constraint \"owners_pkey\"" +
+//					"Detail: Key (owner)=(" + owner.getName() + ") already exists.");
+//		}
 	}
 
 	@Override
