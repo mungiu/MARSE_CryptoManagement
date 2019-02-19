@@ -4,7 +4,7 @@ import SharedInterfaces.IClientController;
 import SharedInterfaces.IServerController;
 import SharedInterfaces.Observable;
 import SharedModel.*;
-import org.postgresql.util.PSQLException;
+//import org.postgresql.util.PSQLException;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
